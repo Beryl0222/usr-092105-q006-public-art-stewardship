@@ -1,0 +1,269 @@
+{
+  "version": "1.0.0",
+  "title": "公共艺术共创养护事件目录",
+  "description": "事件类型与聚合的配对及载荷必填项。site_agreement / design_revision / contribution_record / maintenance_case 的公共事件语义保持不变，其余聚合围绕全生命周期扩展。",
+  "aggregates": {
+    "artwork": "作品主档：版本、权属交接、寿命与最终拆除",
+    "site_agreement": "场地许可、访谈、公众意见与意见汇总",
+    "design_revision": "设计修订、取舍理由与重大改造评审",
+    "contribution_record": "参与者、捐赠旧物、授权、署名、争议与传播发布",
+    "construction_project": "施工方案、安全报备、施工日志与竣工验收",
+    "fund_agreement": "维修资金约定与拨付",
+    "inspection_record": "巡检计划与巡检记录",
+    "maintenance_case": "报损、派修、验收、拆除；案件不因课程结束或人员调动消失"
+  },
+  "events": {
+    "ARTWORK_REGISTERED": {
+      "aggregate": "artwork",
+      "payload_required": ["title", "site_id", "lead_school_party_id", "coordinator_party_id", "curriculum_term_id", "expected_lifetime_years"],
+      "note": "作品立项登记，版本从 v1 开始"
+    },
+    "WORK_ACCEPTED": {
+      "aggregate": "artwork",
+      "payload_required": ["construction_id", "accepted_by_party_ids", "warranty_until", "warranty_covered_party_id"],
+      "note": "竣工验收通过，作品进入服役期并开始计算保修期（沿用原公共语义）"
+    },
+    "ARTWORK_VERSION_OPENED": {
+      "aggregate": "artwork",
+      "payload_required": ["new_version", "reason", "change_request_id"],
+      "note": "重大改造形成新版本；小幅维修不开新版本"
+    },
+    "ARTWORK_HANDED_OVER": {
+      "aggregate": "artwork",
+      "payload_required": ["from_party_id", "to_party_id", "reason", "open_case_ids", "fund_agreement_id"],
+      "note": "课程结束或负责人调动时的保管责任交接，未结案件一并移交"
+    },
+    "ARTWORK_DECOMMISSION_APPROVED": {
+      "aggregate": "artwork",
+      "payload_required": ["reason", "decision_party_ids", "material_disposition"],
+      "note": "正式拆除获批，可附构件去向安排"
+    },
+    "ARTWORK_DECOMMISSIONED": {
+      "aggregate": "artwork",
+      "payload_required": ["demolition_case_id", "archived_uris"],
+      "note": "拆除完成，作品生命周期终结；档案留存"
+    },
+    "ARTWORK_INFO_PUBLISHED": {
+      "aggregate": "artwork",
+      "payload_required": ["adopted_memory_input_ids", "adopted_material_ids", "excluded_input_ids"],
+      "note": "作品介绍页快照：说明哪些在地记忆与材料获得采用"
+    },
+
+    "SITE_PERMIT_REQUESTED": {
+      "aggregate": "site_agreement",
+      "payload_required": ["site_id", "site_owner_party_id", "applicant_party_id", "footprint", "use_period"],
+      "note": "场地许可申请"
+    },
+    "SITE_PERMIT_GRANTED": {
+      "aggregate": "site_agreement",
+      "payload_required": ["site_id", "permit_no", "valid_from", "valid_to", "obligations", "require_safety_filing"],
+      "note": "场地许可获批，载明义务与安全报备要求"
+    },
+    "SITE_PERMIT_CLOSED": {
+      "aggregate": "site_agreement",
+      "payload_required": ["site_id", "reason"],
+      "note": "场地许可终止或到期关闭"
+    },
+    "INPUT_COLLECTED": {
+      "aggregate": "site_agreement",
+      "payload_required": ["input_id", "kind", "collected_by_party_id", "summary"],
+      "payload_optional": ["participant_party_id", "anon_label", "themes", "source_channel", "media_uris", "content"],
+      "note": "访谈、公众意见或工作坊意见（沿用原公共语义）；kind=interview 为口述记忆，kind=public_comment 为公众意见"
+    },
+    "PUBLIC_INPUT_SUMMARY_PUBLISHED": {
+      "aggregate": "site_agreement",
+      "payload_required": ["period", "comment_count", "themes", "note"],
+      "note": "意见汇总只是调查记录，不是表决结果，不能自动替代设计判断"
+    },
+
+    "DESIGN_REVISION_PROPOSED": {
+      "aggregate": "design_revision",
+      "payload_required": ["artwork_id", "revision_no", "based_on_input_ids", "proposal"],
+      "note": "基于已收集意见提出修订稿"
+    },
+    "DESIGN_TRADEOFF_RECORDED": {
+      "aggregate": "design_revision",
+      "payload_required": ["revision_no", "issue", "options", "chosen_option", "rationale", "decided_by_party_id"],
+      "note": "记录各选项支持度、取舍与理由；选项即使支持人数最高也不自动中选"
+    },
+    "DESIGN_DECIDED": {
+      "aggregate": "design_revision",
+      "payload_required": ["revision_no", "decision", "adopted_input_ids", "rejected_inputs", "rationale", "decided_by_party_id"],
+      "note": "设计判断定稿（沿用原公共语义）；采纳与不采纳的意见都要可追溯并附理由"
+    },
+    "DESIGN_CHANGE_REQUESTED": {
+      "aggregate": "design_revision",
+      "payload_required": ["change_request_id", "artwork_id", "scope_class", "description", "requested_by_party_id"],
+      "note": "对已建成作品的改造请求，scope_class=major|minor"
+    },
+    "DESIGN_CHANGE_REVIEWED": {
+      "aggregate": "design_revision",
+      "payload_required": ["change_request_id", "scope_class", "approved", "reviewed_by_party_id", "rationale"],
+      "note": "重大改造须评审通过并开启作品新版本后方可施工"
+    },
+
+    "CONTRIBUTOR_REGISTERED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["party_id", "kind", "display_name"],
+      "payload_optional": ["is_minor", "guardian_party_id", "contact_ref"],
+      "note": "参与者登记；未成年人须登记监护人"
+    },
+    "CONTRIBUTION_AGREEMENT_SIGNED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["agreement_id", "party_id", "roles", "reuse_scope", "signed_at", "doc_uri"],
+      "note": "捐赠/劳务/设计等基础约定，署名与争议核对以此为据"
+    },
+    "MATERIAL_DONATION_OFFERED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["material_id", "donor_party_id", "object_name", "provenance", "condition_photo_uri"],
+      "note": "旧物捐赠意向，如旧打谷机"
+    },
+    "MATERIAL_OWNERSHIP_VERIFIED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["material_id", "owner_party_id", "basis", "witness_party_ids"],
+      "note": "旧物权属核实，先确权再验收"
+    },
+    "MATERIAL_ACCEPTED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["material_id", "accepted_by_party_id", "use_scope", "consented_transformations"],
+      "note": "旧物验收（沿用原公共语义），明确同意的改造方式清单，如清洁、修复、构件重组；未列入者视为未同意"
+    },
+    "MATERIAL_RECONSENTED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["material_id", "owner_party_id", "additionally_consented_transformations", "agreement_id", "reconsented_at"],
+      "note": "权属人事后追加同意；没有此记录，超范围改造不得进行"
+    },
+    "MATERIAL_USE_RECONCILED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["material_id", "actual_transformations", "within_consent", "resolution", "resolved_by_party_ids"],
+      "note": "实际用途与原同意范围核对结果与处置（恢复/归还/赔偿/追认）"
+    },
+    "PARTICIPANT_AUTHORIZATION_GRANTED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["authorization_id", "party_id", "subject_kind", "scopes", "media_ids", "granted_at"],
+      "payload_optional": ["guardian_consent_id", "valid_until"],
+      "note": "影像(subject_kind=image)与口述记忆(subject_kind=oral_history)分别授权；未成年人须监护人同意"
+    },
+    "AUTHORIZATION_WITHDRAWN": {
+      "aggregate": "contribution_record",
+      "payload_required": ["authorization_id", "party_id", "withdrawn_at", "remaining_scopes"],
+      "note": "撤回授权；不影响另一类（影像/口述）授权的效力"
+    },
+    "CREDIT_DECIDED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["artwork_id", "version", "entries", "decided_by_party_id"],
+      "payload_optional": ["supersedes_event_id"],
+      "note": "署名定稿；每条署名须回指已签署的约定"
+    },
+    "DISPUTE_FILED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["dispute_id", "subject", "claimant_party_id", "claim"],
+      "note": "署名、传播或旧物用途争议立案；subject=credit|publication|material_use"
+    },
+    "DISPUTE_RESOLVED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["dispute_id", "ruling", "checked_agreement_ids", "checked_authorization_ids", "remedy", "resolved_by_party_ids"],
+      "note": "争议裁定必须核对原授权与原约定后给出"
+    },
+    "PUBLICATION_RELEASED": {
+      "aggregate": "contribution_record",
+      "payload_required": ["publication_id", "channel", "media_ids", "used_authorization_ids", "released_by_party_id", "released_at"],
+      "note": "对外发布逐条登记所用授权；无有效授权的影像/口述不得发布"
+    },
+
+    "CONSTRUCTION_PLAN_FILED": {
+      "aggregate": "construction_project",
+      "payload_required": ["construction_id", "artwork_id", "contractor_party_id", "safety_officer_party_id", "method_statement_uri", "risk_assessment", "for_version"],
+      "note": "施工方案与安全措施报备；改造工程须注明对应作品版本"
+    },
+    "SAFETY_FILING_APPROVED": {
+      "aggregate": "construction_project",
+      "payload_required": ["construction_id", "approved_by_party_id", "conditions", "valid_until", "minor_participation_arrangement"],
+      "note": "安全报备获批；未成年人参与须有专项安排，否则不得进场"
+    },
+    "CONSTRUCTION_LOGGED": {
+      "aggregate": "construction_project",
+      "payload_required": ["construction_id", "log_date", "activities", "participant_party_ids", "ppe_confirmed"],
+      "note": "施工日志：仅在安全报备获批且有效期内可记录进场施工"
+    },
+    "SAFETY_INCIDENT_REPORTED": {
+      "aggregate": "construction_project",
+      "payload_required": ["construction_id", "incident_id", "severity", "description", "reported_at", "status"],
+      "note": "施工安全事件；高严重度未关闭不得竣工验收"
+    },
+    "WORK_SUBMITTED": {
+      "aggregate": "construction_project",
+      "payload_required": ["construction_id", "submitted_at", "as_built_uri", "warranty_terms"],
+      "note": "施工方报验"
+    },
+
+    "MAINTENANCE_FUND_AGREED": {
+      "aggregate": "fund_agreement",
+      "payload_required": ["fund_id", "artwork_id", "shares", "per_case_cap", "effective_from", "agreement_doc_uri"],
+      "note": "维修资金约定：各方份额与每次上限，随作品交接持续有效"
+    },
+    "MAINTENANCE_FUND_DRAWN": {
+      "aggregate": "fund_agreement",
+      "payload_required": ["fund_id", "case_id", "amount", "purpose", "approved_by_party_ids", "drawn_at"],
+      "note": "资金拨付，累计不得超过约定上限"
+    },
+
+    "INSPECTION_PLAN_SET": {
+      "aggregate": "inspection_record",
+      "payload_required": ["artwork_id", "cadence_months", "owner_party_id"],
+      "note": "巡检周期与责任人"
+    },
+    "INSPECTION_COMPLETED": {
+      "aggregate": "inspection_record",
+      "payload_required": ["inspection_id", "artwork_id", "inspected_at", "inspector_party_id", "findings", "severity", "photo_uris"],
+      "note": "巡检记录；发现问题可触发报损案件"
+    },
+
+    "DAMAGE_REPORTED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "artwork_id", "symptom", "reported_by_party_id", "reported_at", "source"],
+      "payload_optional": ["inspection_id", "photo_uris", "responsible_snapshot", "fund_snapshot"],
+      "note": "报损立案；responsible_snapshot 与 fund_snapshot 由系统按保修/交接/资金约定自动带出"
+    },
+    "REPAIR_ASSIGNED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "assignee_party_id", "assignee_role", "basis", "fund_agreement_id", "due_date"],
+      "note": "派修（沿用原公共语义）；责任依据=warranty|handover|site_owner|fund"
+    },
+    "REPAIR_QUOTE_APPROVED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "amount", "fund_share_snapshot", "approved_by_party_ids"],
+      "note": "报价与资金分担确认"
+    },
+    "REPAIR_COMPLETED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "completed_at", "work_done", "cost", "warranty_extension_months"],
+      "note": "维修完工待验收"
+    },
+    "REPAIR_ACCEPTED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "accepted_by_party_id", "accepted_at", "result"],
+      "note": "维修验收通过是案件关闭的两种合法方式之一"
+    },
+    "CASE_OWNERSHIP_TRANSFERRED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "from_party_id", "to_party_id", "reason", "transferred_at"],
+      "note": "未结案件随作品交接转移，课程结束/调动只换责任人，不关闭案件"
+    },
+    "DEMOLITION_PROPOSED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "artwork_id", "reason", "proposed_by_party_id", "proposed_at"],
+      "note": "无法维修或许可终止时提出拆除"
+    },
+    "DEMOLITION_APPROVED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "decision_party_ids", "approved_at", "notice_uris"],
+      "note": "正式拆除获批"
+    },
+    "DEMOLITION_COMPLETED": {
+      "aggregate": "maintenance_case",
+      "payload_required": ["case_id", "completed_at", "material_disposition", "archived_uris"],
+      "note": "拆除完成是案件关闭的另一种合法方式"
+    }
+  }
+}

@@ -1,0 +1,2147 @@
+[
+  {
+    "event_id": "evt-00001",
+    "event_type": "ARTWORK_REGISTERED",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2025-03-03T09:00:00+08:00",
+    "version": 1,
+    "summary": "青禾学校在地课程项目《稻浪墙》立项，落地地铁7号线B口通道墙",
+    "actor": {
+      "party_id": "party-teacher-li"
+    },
+    "payload": {
+      "title": "稻浪墙",
+      "site_id": "site-metro-line7-b-exit-wall",
+      "lead_school_party_id": "party-school",
+      "coordinator_party_id": "party-teacher-li",
+      "curriculum_term_id": "term-2025-spring",
+      "expected_lifetime_years": 6
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00002",
+    "event_type": "SITE_PERMIT_REQUESTED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2025-03-05T10:00:00+08:00",
+    "version": 1,
+    "summary": "学校向地铁站点管理部申请通道墙面使用许可",
+    "actor": {
+      "party_id": "party-teacher-li"
+    },
+    "payload": {
+      "site_id": "site-metro-line7-b-exit-wall",
+      "site_owner_party_id": "party-metro",
+      "applicant_party_id": "party-school",
+      "footprint": "B口通道北侧墙面 12m×2.6m",
+      "use_period": "2025-04-01/2030-03-14"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00003",
+    "event_type": "SITE_PERMIT_GRANTED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2025-03-12T15:00:00+08:00",
+    "version": 2,
+    "summary": "场地许可获批：保通行、不破防水、半年一巡检，进场前须完成施工安全报备",
+    "actor": {
+      "party_id": "party-metro"
+    },
+    "payload": {
+      "site_id": "site-metro-line7-b-exit-wall",
+      "permit_no": "metro7-b-2025-017",
+      "valid_from": "2025-03-15",
+      "valid_to": "2030-03-14",
+      "obligations": [
+        "保持通道净宽不小于1.8米",
+        "不得破坏墙面防水层",
+        "建成后每半年巡检一次"
+      ],
+      "require_safety_filing": true
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00004",
+    "event_type": "INPUT_COLLECTED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2025-03-16T09:30:00+08:00",
+    "version": 3,
+    "summary": "陈伯口述：村头打谷机是全队抢收时的中心，机声一响孩子都围过来",
+    "actor": {
+      "party_id": "party-teacher-zhou"
+    },
+    "payload": {
+      "input_id": "input-chen-thresher",
+      "kind": "interview",
+      "collected_by_party_id": "party-teacher-zhou",
+      "participant_party_id": "party-resident-chen",
+      "themes": [
+        "农耕记忆",
+        "打谷机",
+        "集体劳动"
+      ],
+      "media_uris": [
+        "media-chen-audio-01"
+      ],
+      "content": "打谷机滚筒转起来，稻粒飞出来像金雨……",
+      "summary": "陈伯回忆打谷机与集体抢收"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00005",
+    "event_type": "INPUT_COLLECTED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2025-03-18T14:00:00+08:00",
+    "version": 4,
+    "summary": "王阿姨口述：晒谷场一片金黄，孩子们在谷堆间追跑",
+    "actor": {
+      "party_id": "party-teacher-zhou"
+    },
+    "payload": {
+      "input_id": "input-wang-sunning",
+      "kind": "interview",
+      "collected_by_party_id": "party-teacher-zhou",
+      "participant_party_id": "party-resident-wang",
+      "themes": [
+        "晒谷场",
+        "丰收",
+        "童年"
+      ],
+      "media_uris": [
+        "media-wang-audio-01"
+      ],
+      "content": "放学路过晒谷场，金黄金黄的。",
+      "summary": "王阿姨回忆晒谷场童年"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00006",
+    "event_type": "INPUT_COLLECTED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2025-03-20T11:00:00+08:00",
+    "version": 5,
+    "summary": "学生小米访谈：每天放学经过这面墙，想看到风吹稻浪的样子",
+    "actor": {
+      "party_id": "party-teacher-li"
+    },
+    "payload": {
+      "input_id": "input-mi-ricewave",
+      "kind": "interview",
+      "collected_by_party_id": "party-teacher-li",
+      "participant_party_id": "party-student-mi",
+      "themes": [
+        "放学路",
+        "稻浪"
+      ],
+      "media_uris": [
+        "media-mi-audio-01",
+        "media-mi-photo-01"
+      ],
+      "content": "我想要墙像真的稻浪一样。",
+      "summary": "小米描述想象中的稻浪墙"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00007",
+    "event_type": "INPUT_COLLECTED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2025-03-24T18:00:00+08:00",
+    "version": 6,
+    "summary": "公众意见（联署86人中61人提及）：希望做发光网红字，方便夜间打卡",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "input_id": "input-pub-neon",
+      "kind": "public_comment",
+      "collected_by_party_id": "party-community",
+      "anon_label": "市民意见箱汇总",
+      "themes": [
+        "夜间发光字",
+        "打卡"
+      ],
+      "source_channel": "站点意见箱",
+      "summary": "多数公众留言希望做发光字"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00008",
+    "event_type": "INPUT_COLLECTED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2025-03-25T18:00:00+08:00",
+    "version": 7,
+    "summary": "公众意见：通道早晚人流密集，装饰物不能凸出墙面、不能有眩光",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "input_id": "input-pub-passage",
+      "kind": "public_comment",
+      "collected_by_party_id": "party-community",
+      "anon_label": "早晚通勤乘客",
+      "themes": [
+        "通道净宽",
+        "眩光",
+        "通行安全"
+      ],
+      "source_channel": "居民议事会",
+      "summary": "通勤乘客关注通行与眩光安全"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00009",
+    "event_type": "PUBLIC_INPUT_SUMMARY_PUBLISHED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2025-03-30T17:00:00+08:00",
+    "version": 8,
+    "summary": "意见汇总发布：86条意见，发光字呼声最高；汇总仅为调查记录，不作为表决结论",
+    "actor": {
+      "party_id": "party-teacher-zhou"
+    },
+    "payload": {
+      "period": "2025-03-15/2025-03-29",
+      "comment_count": 86,
+      "themes": [
+        [
+          "夜间发光字",
+          61
+        ],
+        [
+          "农耕记忆",
+          34
+        ],
+        [
+          "通行与眩光安全",
+          22
+        ],
+        [
+          "稻浪意象",
+          18
+        ]
+      ],
+      "note": "意见多少不自动决定方案，取舍由设计方结合场地安全与耐久性判断，并记录理由"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00010",
+    "event_type": "DESIGN_REVISION_PROPOSED",
+    "aggregate_type": "design_revision",
+    "aggregate_id": "design-daolang",
+    "occurred_at": "2025-04-02T10:00:00+08:00",
+    "version": 1,
+    "summary": "设计第一稿：以稻浪浮雕为主体，嵌入旧打谷机构件",
+    "actor": {
+      "party_id": "party-teacher-zhou"
+    },
+    "payload": {
+      "artwork_id": "artwork-daolang",
+      "revision_no": 1,
+      "based_on_input_ids": [
+        "input-chen-thresher",
+        "input-wang-sunning",
+        "input-mi-ricewave",
+        "input-pub-neon",
+        "input-pub-passage"
+      ],
+      "proposal": "哑光陶粒浮雕稻浪+旧打谷机金属构件嵌入，不凸出墙面超过3cm"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00011",
+    "event_type": "DESIGN_TRADEOFF_RECORDED",
+    "aggregate_type": "design_revision",
+    "aggregate_id": "design-daolang",
+    "occurred_at": "2025-04-05T10:00:00+08:00",
+    "version": 2,
+    "summary": "夜间效果取舍：发光字支持人数最多，但因眩光与行车视线安全未中选",
+    "actor": {
+      "party_id": "party-teacher-zhou"
+    },
+    "payload": {
+      "revision_no": 1,
+      "issue": "夜间视觉效果",
+      "options": [
+        {
+          "option": "A-led-characters",
+          "support_count": 61,
+          "note": "发光网红字，夜间打卡效果强"
+        },
+        {
+          "option": "B-matte-relief",
+          "support_count": 18,
+          "note": "哑光陶粒稻浪，借站点照明反光柔和"
+        },
+        {
+          "option": "C-mirror-metal",
+          "support_count": 7,
+          "note": "镜面金属，眩光风险高"
+        }
+      ],
+      "chosen_option": "B-matte-relief",
+      "rationale": "通道紧邻行车区段，发光字与镜面材料将造成眩光；哑光浮雕在站点照明下可读且耐久。支持人数高不构成中选理由。",
+      "decided_by_party_id": "party-teacher-zhou"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00012",
+    "event_type": "DESIGN_DECIDED",
+    "aggregate_type": "design_revision",
+    "aggregate_id": "design-daolang",
+    "occurred_at": "2025-04-08T16:00:00+08:00",
+    "version": 3,
+    "summary": "设计定稿：采纳稻浪与打谷机记忆、通行安全意见；不采纳发光字并书面说明理由",
+    "actor": {
+      "party_id": "party-teacher-zhou"
+    },
+    "payload": {
+      "revision_no": 1,
+      "decision": "定稿",
+      "adopted_input_ids": [
+        "input-chen-thresher",
+        "input-wang-sunning",
+        "input-mi-ricewave",
+        "input-pub-passage"
+      ],
+      "rejected_inputs": [
+        {
+          "input_id": "input-pub-neon",
+          "reason": "发光字在通道内形成眩光，且需外接电源，不满足场地安全义务"
+        }
+      ],
+      "rationale": "公共艺术意见征集是设计输入而非方案表决；最终判断以场地安全义务、在地记忆代表性和耐久可维护性为准。",
+      "decided_by_party_id": "party-teacher-zhou"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00013",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 1,
+    "summary": "登记参与者：青禾学校",
+    "payload": {
+      "party_id": "party-school",
+      "kind": "school",
+      "display_name": "青禾学校"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00014",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 2,
+    "summary": "登记参与者：地铁集团站点管理部",
+    "payload": {
+      "party_id": "party-metro",
+      "kind": "site_owner",
+      "display_name": "地铁集团站点管理部"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00015",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 3,
+    "summary": "登记参与者：荷花里社区居委会",
+    "payload": {
+      "party_id": "party-community",
+      "kind": "community_org",
+      "display_name": "荷花里社区居委会"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00016",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 4,
+    "summary": "登记参与者：街道公共空间养护站",
+    "payload": {
+      "party_id": "party-stewardship",
+      "kind": "stewardship_org",
+      "display_name": "街道公共空间养护站"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00017",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 5,
+    "summary": "登记参与者：李老师（课程负责教师）",
+    "payload": {
+      "party_id": "party-teacher-li",
+      "kind": "teacher",
+      "display_name": "李老师（课程负责教师）"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00018",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 6,
+    "summary": "登记参与者：周老师（设计指导）",
+    "payload": {
+      "party_id": "party-teacher-zhou",
+      "kind": "teacher",
+      "display_name": "周老师（设计指导）"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00019",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 7,
+    "summary": "登记参与者：恒岩施工队",
+    "payload": {
+      "party_id": "party-builder-hengyan",
+      "kind": "contractor",
+      "display_name": "恒岩施工队"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00020",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 8,
+    "summary": "登记参与者：赵师傅（专职安全员）",
+    "payload": {
+      "party_id": "party-officer-zhao",
+      "kind": "safety_officer",
+      "display_name": "赵师傅（专职安全员）"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00021",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 9,
+    "summary": "登记参与者：陈伯（旧打谷机捐赠人）",
+    "payload": {
+      "party_id": "party-resident-chen",
+      "kind": "resident_donor",
+      "display_name": "陈伯（旧打谷机捐赠人）"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00022",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 10,
+    "summary": "登记参与者：王阿姨",
+    "payload": {
+      "party_id": "party-resident-wang",
+      "kind": "resident",
+      "display_name": "王阿姨"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00023",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 11,
+    "summary": "登记参与者：小米（在校学生，未成年）",
+    "payload": {
+      "party_id": "party-student-mi",
+      "kind": "student",
+      "display_name": "小米（在校学生，未成年）",
+      "is_minor": true,
+      "guardian_party_id": "party-guardian-mi"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00024",
+    "event_type": "CONTRIBUTOR_REGISTERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-10T09:00:00+08:00",
+    "version": 12,
+    "summary": "登记参与者：小米家长（监护人）",
+    "payload": {
+      "party_id": "party-guardian-mi",
+      "kind": "guardian",
+      "display_name": "小米家长（监护人）"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00025",
+    "event_type": "CONTRIBUTION_AGREEMENT_SIGNED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-12T10:00:00+08:00",
+    "version": 13,
+    "summary": "陈伯签署捐赠与口述协议：捐赠旧打谷机，约定可署名并保留构件来源说明",
+    "actor": {
+      "party_id": "party-resident-chen"
+    },
+    "payload": {
+      "agreement_id": "agr-chen-donation",
+      "party_id": "party-resident-chen",
+      "roles": [
+        "material_donor",
+        "oral_narrator"
+      ],
+      "reuse_scope": "口述用于作品介绍、展览与档案；旧物按列明的改造方式使用",
+      "signed_at": "2025-04-12",
+      "doc_uri": "docs/agreements/agr-chen-donation.pdf"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00026",
+    "event_type": "CONTRIBUTION_AGREEMENT_SIGNED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-12T10:10:00+08:00",
+    "version": 14,
+    "summary": "王阿姨签署口述访谈协议",
+    "actor": {
+      "party_id": "party-resident-wang"
+    },
+    "payload": {
+      "agreement_id": "agr-wang-interview",
+      "party_id": "party-resident-wang",
+      "roles": [
+        "oral_narrator"
+      ],
+      "reuse_scope": "口述用于作品介绍、展览与档案",
+      "signed_at": "2025-04-12",
+      "doc_uri": "docs/agreements/agr-wang.pdf"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00027",
+    "event_type": "CONTRIBUTION_AGREEMENT_SIGNED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-12T10:20:00+08:00",
+    "version": 15,
+    "summary": "学生参与协议（监护人签署）",
+    "actor": {
+      "party_id": "party-guardian-mi"
+    },
+    "payload": {
+      "agreement_id": "agr-mi-participation",
+      "party_id": "party-student-mi",
+      "roles": [
+        "student_creator",
+        "oral_narrator"
+      ],
+      "reuse_scope": "作品署名、介绍与展览",
+      "signed_at": "2025-04-12",
+      "doc_uri": "docs/agreements/agr-mi-guardian.pdf"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00028",
+    "event_type": "CONTRIBUTION_AGREEMENT_SIGNED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-12T11:00:00+08:00",
+    "version": 16,
+    "summary": "施工队签署施工合同，载明保修义务",
+    "actor": {
+      "party_id": "party-builder-hengyan"
+    },
+    "payload": {
+      "agreement_id": "agr-builder-construction",
+      "party_id": "party-builder-hengyan",
+      "roles": [
+        "constructor"
+      ],
+      "reuse_scope": "按图施工，竣工验收后两年保修",
+      "signed_at": "2025-04-12",
+      "doc_uri": "docs/agreements/agr-builder.pdf"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00029",
+    "event_type": "CONTRIBUTION_AGREEMENT_SIGNED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-12T11:20:00+08:00",
+    "version": 17,
+    "summary": "周老师签署设计指导协议",
+    "actor": {
+      "party_id": "party-teacher-zhou"
+    },
+    "payload": {
+      "agreement_id": "agr-zhou-design",
+      "party_id": "party-teacher-zhou",
+      "roles": [
+        "design_lead"
+      ],
+      "reuse_scope": "承担设计定稿取舍责任并按此署名",
+      "signed_at": "2025-04-12",
+      "doc_uri": "docs/agreements/agr-zhou.pdf"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00030",
+    "event_type": "CONTRIBUTION_AGREEMENT_SIGNED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-12T11:30:00+08:00",
+    "version": 18,
+    "summary": "学校签署课程共创组织协议",
+    "actor": {
+      "party_id": "party-school"
+    },
+    "payload": {
+      "agreement_id": "agr-school-community",
+      "party_id": "party-school",
+      "roles": [
+        "curriculum_organizer",
+        "co-creator"
+      ],
+      "reuse_scope": "课程共创成果的组织与署名",
+      "signed_at": "2025-04-12",
+      "doc_uri": "docs/agreements/agr-school.pdf"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00031",
+    "event_type": "MATERIAL_DONATION_OFFERED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-13T09:00:00+08:00",
+    "version": 19,
+    "summary": "陈伯捐出家中旧打谷机，附现状照片",
+    "actor": {
+      "party_id": "party-resident-chen"
+    },
+    "payload": {
+      "material_id": "material-old-thresher-01",
+      "donor_party_id": "party-resident-chen",
+      "object_name": "老式脚踏打谷机",
+      "provenance": "原荷花里生产队1982年分配使用，陈伯家保管至今",
+      "condition_photo_uri": "media/thresher-before.jpg"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00032",
+    "event_type": "MATERIAL_OWNERSHIP_VERIFIED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-15T09:00:00+08:00",
+    "version": 20,
+    "summary": "居委会核实旧打谷机权属：村集体分配登记与两位老邻居见证，权属归陈伯",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "material_id": "material-old-thresher-01",
+      "owner_party_id": "party-resident-chen",
+      "basis": "1982年生产队分配登记底册+长期占有事实",
+      "witness_party_ids": [
+        "party-resident-wang",
+        "party-community"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00033",
+    "event_type": "MATERIAL_ACCEPTED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-18T10:00:00+08:00",
+    "version": 21,
+    "summary": "旧打谷机验收入场，逐项列明捐赠人同意的改造方式；未列明者不得实施",
+    "actor": {
+      "party_id": "party-school"
+    },
+    "payload": {
+      "material_id": "material-old-thresher-01",
+      "accepted_by_party_id": "party-school",
+      "use_scope": "构件拆解后嵌入稻浪墙浮雕，作品介绍中标注来源",
+      "consented_transformations": [
+        "清洁除油",
+        "结构加固",
+        "拆解为浮雕构件",
+        "表面保留原木色与锈蚀痕迹"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00034",
+    "event_type": "PARTICIPANT_AUTHORIZATION_GRANTED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-20T09:00:00+08:00",
+    "version": 22,
+    "summary": "陈伯授权口述录音用于介绍页、展览与新闻报道",
+    "actor": {
+      "party_id": "party-resident-chen"
+    },
+    "payload": {
+      "authorization_id": "auth-chen-oral",
+      "party_id": "party-resident-chen",
+      "subject_kind": "oral_history",
+      "scopes": [
+        "intro_page",
+        "exhibition",
+        "press"
+      ],
+      "media_ids": [
+        "media-chen-audio-01"
+      ],
+      "granted_at": "2025-04-20"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00035",
+    "event_type": "PARTICIPANT_AUTHORIZATION_GRANTED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-20T09:10:00+08:00",
+    "version": 23,
+    "summary": "小米影像授权（监护人单独同意）",
+    "actor": {
+      "party_id": "party-guardian-mi"
+    },
+    "payload": {
+      "authorization_id": "auth-mi-image",
+      "party_id": "party-student-mi",
+      "subject_kind": "image",
+      "scopes": [
+        "intro_page",
+        "exhibition"
+      ],
+      "media_ids": [
+        "media-mi-photo-01"
+      ],
+      "granted_at": "2025-04-20",
+      "guardian_consent_id": "guardian-consent-mi-image-01"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00036",
+    "event_type": "PARTICIPANT_AUTHORIZATION_GRANTED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-20T09:20:00+08:00",
+    "version": 24,
+    "summary": "小米口述授权（监护人另行单独同意，与影像授权互不替代）",
+    "actor": {
+      "party_id": "party-guardian-mi"
+    },
+    "payload": {
+      "authorization_id": "auth-mi-oral",
+      "party_id": "party-student-mi",
+      "subject_kind": "oral_history",
+      "scopes": [
+        "intro_page",
+        "exhibition"
+      ],
+      "media_ids": [
+        "media-mi-audio-01"
+      ],
+      "granted_at": "2025-04-20",
+      "guardian_consent_id": "guardian-consent-mi-oral-01"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00037",
+    "event_type": "PARTICIPANT_AUTHORIZATION_GRANTED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-20T09:30:00+08:00",
+    "version": 25,
+    "summary": "王阿姨授权口述录音使用",
+    "actor": {
+      "party_id": "party-resident-wang"
+    },
+    "payload": {
+      "authorization_id": "auth-wang-oral",
+      "party_id": "party-resident-wang",
+      "subject_kind": "oral_history",
+      "scopes": [
+        "intro_page",
+        "exhibition",
+        "press"
+      ],
+      "media_ids": [
+        "media-wang-audio-01"
+      ],
+      "granted_at": "2025-04-20"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00038",
+    "event_type": "CREDIT_DECIDED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-04-22T15:00:00+08:00",
+    "version": 26,
+    "summary": "署名初稿：每条署名均回指本人签署的协议",
+    "actor": {
+      "party_id": "party-teacher-li"
+    },
+    "payload": {
+      "artwork_id": "artwork-daolang",
+      "version": 1,
+      "entries": [
+        {
+          "party_id": "party-resident-chen",
+          "label": "旧物捐赠/口述：陈伯",
+          "agreement_id": "agr-chen-donation"
+        },
+        {
+          "party_id": "party-resident-wang",
+          "label": "口述：王阿姨",
+          "agreement_id": "agr-wang-interview"
+        },
+        {
+          "party_id": "party-student-mi",
+          "label": "学生共创：小米等12名学生",
+          "agreement_id": "agr-mi-participation"
+        },
+        {
+          "party_id": "party-teacher-zhou",
+          "label": "设计指导：周老师",
+          "agreement_id": "agr-zhou-design"
+        },
+        {
+          "party_id": "party-builder-hengyan",
+          "label": "施工：恒岩施工队",
+          "agreement_id": "agr-builder-construction"
+        },
+        {
+          "party_id": "party-school",
+          "label": "课程组织：青禾学校",
+          "agreement_id": "agr-school-community"
+        }
+      ],
+      "decided_by_party_id": "party-teacher-li"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00039",
+    "event_type": "CONSTRUCTION_PLAN_FILED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v1",
+    "occurred_at": "2025-04-23T10:00:00+08:00",
+    "version": 1,
+    "summary": "施工方案与安全措施报备，对应作品 v1",
+    "actor": {
+      "party_id": "party-builder-hengyan"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v1",
+      "artwork_id": "artwork-daolang",
+      "contractor_party_id": "party-builder-hengyan",
+      "safety_officer_party_id": "party-officer-zhao",
+      "method_statement_uri": "docs/construction/v1-method.pdf",
+      "risk_assessment": [
+        "高处作业系挂安全带",
+        "切割作业设围挡",
+        "夜间不施工"
+      ],
+      "for_version": 1
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00040",
+    "event_type": "SAFETY_FILING_APPROVED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v1",
+    "occurred_at": "2025-04-24T14:00:00+08:00",
+    "version": 2,
+    "summary": "安全报备获批：学生仅参与非机械、非高处工序",
+    "actor": {
+      "party_id": "party-officer-zhao"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v1",
+      "approved_by_party_id": "party-officer-zhao",
+      "conditions": [
+        "切割区域围挡",
+        "施工时段避让早晚高峰"
+      ],
+      "valid_until": "2025-08-31",
+      "minor_participation_arrangement": "未成年学生仅参与涂刷与拼贴，不接触切割机械与高处作业，全程教师陪同"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00041",
+    "event_type": "MAINTENANCE_FUND_AGREED",
+    "aggregate_type": "fund_agreement",
+    "aggregate_id": "fund-daolang-001",
+    "occurred_at": "2025-04-26T10:00:00+08:00",
+    "version": 1,
+    "summary": "维修资金约定：地铁、学校、社区按比例分担，每次上限2万元",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "fund_id": "fund-daolang-001",
+      "artwork_id": "artwork-daolang",
+      "shares": {
+        "party-metro": 0.5,
+        "party-school": 0.3,
+        "party-community": 0.2
+      },
+      "per_case_cap": 20000,
+      "effective_from": "2025-04-26",
+      "agreement_doc_uri": "docs/fund/fund-agreement-v1.pdf"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00042",
+    "event_type": "CONSTRUCTION_LOGGED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v1",
+    "occurred_at": "2025-05-06T17:00:00+08:00",
+    "version": 3,
+    "summary": "施工日志：打谷机按同意范围清洁、加固并拆解为浮雕构件；学生小米参加拼贴工序",
+    "actor": {
+      "party_id": "party-officer-zhao"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v1",
+      "log_date": "2025-05-06",
+      "activities": [
+        "打谷机清洁除油",
+        "结构加固",
+        "拆解为浮雕构件",
+        "学生拼贴工作坊"
+      ],
+      "participant_party_ids": [
+        "party-builder-hengyan",
+        "party-officer-zhao",
+        "party-student-mi"
+      ],
+      "ppe_confirmed": true,
+      "material_transformations": [
+        {
+          "material_id": "material-old-thresher-01",
+          "transformations": [
+            "清洁除油",
+            "结构加固",
+            "拆解为浮雕构件"
+          ]
+        }
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00043",
+    "event_type": "CONSTRUCTION_LOGGED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v1",
+    "occurred_at": "2025-05-20T17:00:00+08:00",
+    "version": 4,
+    "summary": "施工日志：浮雕上墙，预埋件做防水处理",
+    "actor": {
+      "party_id": "party-officer-zhao"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v1",
+      "log_date": "2025-05-20",
+      "activities": [
+        "浮雕上墙",
+        "预埋件防水"
+      ],
+      "participant_party_ids": [
+        "party-builder-hengyan",
+        "party-officer-zhao"
+      ],
+      "ppe_confirmed": true
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00044",
+    "event_type": "DISPUTE_FILED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-06-15T10:00:00+08:00",
+    "version": 27,
+    "summary": "陈伯现场发现打谷机滚筒被整体切割、机身被喷成蓝色，提出异议",
+    "actor": {
+      "party_id": "party-resident-chen"
+    },
+    "payload": {
+      "dispute_id": "dispute-2025-thresher-use",
+      "subject": "material_use",
+      "claimant_party_id": "party-resident-chen",
+      "claim": "只同意清洁、加固和拆解为浮雕构件并保留原色，未同意切割滚筒和整机改色"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00045",
+    "event_type": "MATERIAL_USE_RECONCILED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-06-20T15:00:00+08:00",
+    "version": 28,
+    "summary": "核对实际改造与原同意清单：两项越界；处置为恢复原色、更换铭牌、书面致歉，不追认切割",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "material_id": "material-old-thresher-01",
+      "actual_transformations": [
+        "清洁除油",
+        "结构加固",
+        "拆解为浮雕构件",
+        "切割滚筒",
+        "整机喷涂蓝色"
+      ],
+      "within_consent": false,
+      "resolution": "外露机身恢复原木色处理，切割滚筒部位改用复刻构件，增加来源铭牌，施工队书面致歉；捐赠人不追认切割行为",
+      "resolved_by_party_ids": [
+        "party-school",
+        "party-community",
+        "party-resident-chen"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00046",
+    "event_type": "DISPUTE_RESOLVED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-06-20T16:00:00+08:00",
+    "version": 29,
+    "summary": "依据原捐赠协议与验收同意清单裁定：施工方越界，按和解方案执行",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "dispute_id": "dispute-2025-thresher-use",
+      "ruling": "超出同意范围的改造构成违约",
+      "checked_agreement_ids": [
+        "agr-chen-donation"
+      ],
+      "checked_authorization_ids": [],
+      "remedy": "恢复原色+复刻构件+来源铭牌+书面致歉",
+      "resolved_by_party_ids": [
+        "party-school",
+        "party-community"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00047",
+    "event_type": "WORK_SUBMITTED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v1",
+    "occurred_at": "2025-08-25T10:00:00+08:00",
+    "version": 5,
+    "summary": "施工方报验，承诺两年保修",
+    "actor": {
+      "party_id": "party-builder-hengyan"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v1",
+      "submitted_at": "2025-08-25",
+      "as_built_uri": "docs/construction/v1-asbuilt.pdf",
+      "warranty_terms": "竣工验收之日起两年内非人为损坏由恒岩施工队免费维修"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00048",
+    "event_type": "WORK_ACCEPTED",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2025-08-28T10:00:00+08:00",
+    "version": 2,
+    "summary": "学校、地铁与社区联合竣工验收通过，两年保修期起算",
+    "actor": {
+      "party_id": "party-metro"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v1",
+      "accepted_by_party_ids": [
+        "party-school",
+        "party-metro",
+        "party-community"
+      ],
+      "warranty_until": "2027-08-31",
+      "warranty_covered_party_id": "party-builder-hengyan"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00049",
+    "event_type": "INSPECTION_PLAN_SET",
+    "aggregate_type": "inspection_record",
+    "aggregate_id": "inspection-daolang",
+    "occurred_at": "2025-08-28T11:00:00+08:00",
+    "version": 1,
+    "summary": "设定每半年巡检，责任人为学校（李老师）",
+    "actor": {
+      "party_id": "party-school"
+    },
+    "payload": {
+      "artwork_id": "artwork-daolang",
+      "cadence_months": 6,
+      "owner_party_id": "party-teacher-li"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00050",
+    "event_type": "ARTWORK_INFO_PUBLISHED",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2025-08-30T10:00:00+08:00",
+    "version": 3,
+    "summary": "作品介绍页发布：列明采用的在地记忆、旧物材料与未采纳意见",
+    "actor": {
+      "party_id": "party-school"
+    },
+    "payload": {
+      "adopted_memory_input_ids": [
+        "input-chen-thresher",
+        "input-wang-sunning",
+        "input-mi-ricewave"
+      ],
+      "adopted_material_ids": [
+        "material-old-thresher-01"
+      ],
+      "excluded_input_ids": [
+        "input-pub-neon"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00051",
+    "event_type": "PUBLICATION_RELEASED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2025-08-31T09:00:00+08:00",
+    "version": 30,
+    "summary": "落成展发布：所用影像与口述逐条登记授权",
+    "actor": {
+      "party_id": "party-school"
+    },
+    "payload": {
+      "publication_id": "pub-launch-exhibition",
+      "channel": "exhibition",
+      "media_ids": [
+        "media-mi-photo-01",
+        "media-chen-audio-01",
+        "media-mi-audio-01",
+        "media-wang-audio-01"
+      ],
+      "used_authorization_ids": [
+        "auth-mi-image",
+        "auth-chen-oral",
+        "auth-mi-oral",
+        "auth-wang-oral"
+      ],
+      "released_by_party_id": "party-school",
+      "released_at": "2025-08-31"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00052",
+    "event_type": "MAINTENANCE_FUND_AGREED",
+    "aggregate_type": "fund_agreement",
+    "aggregate_id": "fund-daolang-001",
+    "occurred_at": "2026-07-15T10:00:00+08:00",
+    "version": 2,
+    "summary": "课程结项前更新资金约定：养护站承接学校份额，约定随作品持续有效",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "fund_id": "fund-daolang-001",
+      "artwork_id": "artwork-daolang",
+      "shares": {
+        "party-metro": 0.5,
+        "party-stewardship": 0.3,
+        "party-community": 0.2
+      },
+      "per_case_cap": 20000,
+      "effective_from": "2026-07-15",
+      "agreement_doc_uri": "docs/fund/fund-agreement-v2.pdf"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00053",
+    "event_type": "ARTWORK_HANDED_OVER",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2026-07-16T10:00:00+08:00",
+    "version": 4,
+    "summary": "课程结项：作品保管责任由学校移交街道养护站；当时无未结案件，资金约定一并移交",
+    "actor": {
+      "party_id": "party-school"
+    },
+    "payload": {
+      "from_party_id": "party-school",
+      "to_party_id": "party-stewardship",
+      "reason": "2025春季在地课程结项，作品转为长期公共设施养护",
+      "open_case_ids": [],
+      "fund_agreement_id": "fund-daolang-001"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00054",
+    "event_type": "INSPECTION_PLAN_SET",
+    "aggregate_type": "inspection_record",
+    "aggregate_id": "inspection-daolang",
+    "occurred_at": "2026-07-16T11:00:00+08:00",
+    "version": 2,
+    "summary": "巡检责任人随交接变更为养护站",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "artwork_id": "artwork-daolang",
+      "cadence_months": 6,
+      "owner_party_id": "party-stewardship"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00055",
+    "event_type": "INSPECTION_COMPLETED",
+    "aggregate_type": "inspection_record",
+    "aggregate_id": "inspection-daolang",
+    "occurred_at": "2026-09-10T10:00:00+08:00",
+    "version": 3,
+    "summary": "巡检发现顶部接缝开裂约2米，建议立即报损",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "inspection_id": "insp-2026-09",
+      "artwork_id": "artwork-daolang",
+      "inspected_at": "2026-09-10",
+      "inspector_party_id": "party-stewardship",
+      "findings": "顶部接缝纵向开裂约2米，有碎片脱落风险",
+      "severity": "high",
+      "photo_uris": [
+        "media/crack-2026-09.jpg"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00056",
+    "event_type": "DAMAGE_REPORTED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2026-crack",
+    "occurred_at": "2026-09-12T09:00:00+08:00",
+    "version": 1,
+    "summary": "居委会替社区报修墙面开裂；系统按保修状态自动带出责任人为施工方、资金为现行约定",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "case_id": "case-2026-crack",
+      "artwork_id": "artwork-daolang",
+      "symptom": "顶部接缝纵向开裂约2米",
+      "reported_by_party_id": "party-community",
+      "reported_at": "2026-09-12T09:00:00+08:00",
+      "source": "inspection",
+      "inspection_id": "insp-2026-09",
+      "photo_uris": [
+        "media/crack-2026-09.jpg"
+      ],
+      "responsible_snapshot": {
+        "basis": "warranty",
+        "responsible_party_id": "party-builder-hengyan",
+        "warranty_until": "2027-08-31"
+      },
+      "fund_snapshot": {
+        "fund_id": "fund-daolang-001",
+        "shares": {
+          "party-metro": 0.5,
+          "party-stewardship": 0.3,
+          "party-community": 0.2
+        },
+        "per_case_cap": 20000
+      }
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00057",
+    "event_type": "REPAIR_ASSIGNED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2026-crack",
+    "occurred_at": "2026-09-16T10:00:00+08:00",
+    "version": 2,
+    "summary": "派修施工队履行保修责任（社区找学校、学校找施工方的扯皮由保修记录直接终结）",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "case_id": "case-2026-crack",
+      "assignee_party_id": "party-builder-hengyan",
+      "assignee_role": "施工单位（保修责任）",
+      "basis": "warranty",
+      "fund_agreement_id": "fund-daolang-001",
+      "due_date": "2026-10-15"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00058",
+    "event_type": "REPAIR_QUOTE_APPROVED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2026-crack",
+    "occurred_at": "2026-09-20T10:00:00+08:00",
+    "version": 3,
+    "summary": "保修范围外的防水重做部分按资金约定分担，报价未超每次上限",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "case_id": "case-2026-crack",
+      "amount": 8600,
+      "fund_share_snapshot": {
+        "party-metro": 0.5,
+        "party-stewardship": 0.3,
+        "party-community": 0.2
+      },
+      "approved_by_party_ids": [
+        "party-metro",
+        "party-stewardship",
+        "party-community"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00059",
+    "event_type": "MAINTENANCE_FUND_DRAWN",
+    "aggregate_type": "fund_agreement",
+    "aggregate_id": "fund-daolang-001",
+    "occurred_at": "2026-09-21T10:00:00+08:00",
+    "version": 3,
+    "summary": "按约定份额拨付维修资金8600元",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "fund_id": "fund-daolang-001",
+      "case_id": "case-2026-crack",
+      "amount": 8600,
+      "purpose": "接缝防水重做与浮雕复位",
+      "approved_by_party_ids": [
+        "party-metro",
+        "party-stewardship",
+        "party-community"
+      ],
+      "drawn_at": "2026-09-21"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00060",
+    "event_type": "REPAIR_COMPLETED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2026-crack",
+    "occurred_at": "2026-10-08T16:00:00+08:00",
+    "version": 4,
+    "summary": "维修完工：清除松动层、重做防水、浮雕复位，保修期延长6个月",
+    "actor": {
+      "party_id": "party-builder-hengyan"
+    },
+    "payload": {
+      "case_id": "case-2026-crack",
+      "completed_at": "2026-10-08T16:00:00+08:00",
+      "work_done": [
+        "清除松动层",
+        "接缝防水重做",
+        "浮雕复位加固"
+      ],
+      "cost": 8600,
+      "warranty_extension_months": 6
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00061",
+    "event_type": "REPAIR_ACCEPTED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2026-crack",
+    "occurred_at": "2026-10-10T10:00:00+08:00",
+    "version": 5,
+    "summary": "维修验收通过，案件关闭（课程早已结项不影响案件存续与关闭）",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "case_id": "case-2026-crack",
+      "accepted_by_party_id": "party-stewardship",
+      "accepted_at": "2026-10-10T10:00:00+08:00",
+      "result": "接缝平整、防水闭水试验合格、观感与原作一致"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00062",
+    "event_type": "DISPUTE_FILED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2026-11-02T09:00:00+08:00",
+    "version": 31,
+    "summary": "陈伯发现现场铭牌只写了学校与施工队，没有捐赠人与口述者，要求核对",
+    "actor": {
+      "party_id": "party-resident-chen"
+    },
+    "payload": {
+      "dispute_id": "dispute-2026-credit",
+      "subject": "credit",
+      "claimant_party_id": "party-resident-chen",
+      "claim": "按原协议应署名旧物捐赠/口述"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00063",
+    "event_type": "DISPUTE_RESOLVED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2026-11-08T15:00:00+08:00",
+    "version": 32,
+    "summary": "核对原签署协议后裁定补署，养护站两周内更换铭牌",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "dispute_id": "dispute-2026-credit",
+      "ruling": "原协议明确署名权，初稿署名漏登",
+      "checked_agreement_ids": [
+        "agr-chen-donation",
+        "agr-wang-interview",
+        "agr-mi-participation"
+      ],
+      "checked_authorization_ids": [],
+      "remedy": "更换铭牌补署捐赠人与口述者，介绍页同步更新",
+      "resolved_by_party_ids": [
+        "party-stewardship",
+        "party-community"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00064",
+    "event_type": "CREDIT_DECIDED",
+    "aggregate_type": "contribution_record",
+    "aggregate_id": "contribution-daolang",
+    "occurred_at": "2026-11-08T16:00:00+08:00",
+    "version": 33,
+    "summary": "署名修订定稿，取代落成时的初稿",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "artwork_id": "artwork-daolang",
+      "version": 1,
+      "entries": [
+        {
+          "party_id": "party-resident-chen",
+          "label": "旧物捐赠/口述：陈伯",
+          "agreement_id": "agr-chen-donation"
+        },
+        {
+          "party_id": "party-resident-wang",
+          "label": "口述：王阿姨",
+          "agreement_id": "agr-wang-interview"
+        },
+        {
+          "party_id": "party-student-mi",
+          "label": "学生共创：小米等12名学生",
+          "agreement_id": "agr-mi-participation"
+        },
+        {
+          "party_id": "party-teacher-zhou",
+          "label": "设计指导：周老师",
+          "agreement_id": "agr-zhou-design"
+        },
+        {
+          "party_id": "party-builder-hengyan",
+          "label": "施工/保修：恒岩施工队",
+          "agreement_id": "agr-builder-construction"
+        },
+        {
+          "party_id": "party-school",
+          "label": "课程组织：青禾学校",
+          "agreement_id": "agr-school-community"
+        }
+      ],
+      "decided_by_party_id": "party-stewardship"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00065",
+    "event_type": "INSPECTION_COMPLETED",
+    "aggregate_type": "inspection_record",
+    "aggregate_id": "inspection-daolang",
+    "occurred_at": "2027-09-20T10:00:00+08:00",
+    "version": 4,
+    "summary": "巡检发现边角瓷砖松动（保修已于2027-08-31到期）",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "inspection_id": "insp-2027-09",
+      "artwork_id": "artwork-daolang",
+      "inspected_at": "2027-09-20",
+      "inspector_party_id": "party-stewardship",
+      "findings": "左下角饰面砖松动3块",
+      "severity": "low",
+      "photo_uris": [
+        "media/tile-2027-09.jpg"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00066",
+    "event_type": "DAMAGE_REPORTED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2027-tile-loose",
+    "occurred_at": "2027-09-22T09:00:00+08:00",
+    "version": 1,
+    "summary": "过保后报损：系统自动判定责任人为当前保管方养护站，资金仍按约定分担",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "case_id": "case-2027-tile-loose",
+      "artwork_id": "artwork-daolang",
+      "symptom": "左下角饰面砖松动3块",
+      "reported_by_party_id": "party-community",
+      "reported_at": "2027-09-22T09:00:00+08:00",
+      "source": "inspection",
+      "inspection_id": "insp-2027-09",
+      "responsible_snapshot": {
+        "basis": "custody",
+        "responsible_party_id": "party-stewardship"
+      },
+      "fund_snapshot": {
+        "fund_id": "fund-daolang-001",
+        "shares": {
+          "party-metro": 0.5,
+          "party-stewardship": 0.3,
+          "party-community": 0.2
+        },
+        "per_case_cap": 20000
+      }
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00067",
+    "event_type": "REPAIR_ASSIGNED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2027-tile-loose",
+    "occurred_at": "2027-09-25T10:00:00+08:00",
+    "version": 2,
+    "summary": "养护站承修（过保后保管责任）",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "case_id": "case-2027-tile-loose",
+      "assignee_party_id": "party-stewardship",
+      "assignee_role": "保管方养护单位",
+      "basis": "custody",
+      "fund_agreement_id": "fund-daolang-001",
+      "due_date": "2027-10-25"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00068",
+    "event_type": "CASE_OWNERSHIP_TRANSFERRED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2027-tile-loose",
+    "occurred_at": "2027-10-06T10:00:00+08:00",
+    "version": 3,
+    "summary": "养护站一组负责人调动，未结案件移交二组；只换责任人，不关闭案件",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "case_id": "case-2027-tile-loose",
+      "from_party_id": "party-stewardship",
+      "to_party_id": "party-stewardship-team2",
+      "reason": "养护站一组负责人工作调动",
+      "transferred_at": "2027-10-06T10:00:00+08:00"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00069",
+    "event_type": "ARTWORK_HANDED_OVER",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2027-10-06T10:05:00+08:00",
+    "version": 5,
+    "summary": "作品保管责任同步移交养护站二组，交接单列明全部未结案件，资金分担主体不变",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "from_party_id": "party-stewardship",
+      "to_party_id": "party-stewardship-team2",
+      "reason": "养护站一组负责人工作调动",
+      "open_case_ids": [
+        "case-2027-tile-loose"
+      ],
+      "fund_agreement_id": "fund-daolang-001"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00070",
+    "event_type": "INSPECTION_PLAN_SET",
+    "aggregate_type": "inspection_record",
+    "aggregate_id": "inspection-daolang",
+    "occurred_at": "2027-10-06T10:10:00+08:00",
+    "version": 5,
+    "summary": "巡检责任人随调动变更为二组",
+    "actor": {
+      "party_id": "party-stewardship-team2"
+    },
+    "payload": {
+      "artwork_id": "artwork-daolang",
+      "cadence_months": 6,
+      "owner_party_id": "party-stewardship-team2"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00071",
+    "event_type": "REPAIR_QUOTE_APPROVED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2027-tile-loose",
+    "occurred_at": "2027-10-08T10:00:00+08:00",
+    "version": 4,
+    "summary": "二组接手后确认报价1200元",
+    "actor": {
+      "party_id": "party-stewardship-team2"
+    },
+    "payload": {
+      "case_id": "case-2027-tile-loose",
+      "amount": 1200,
+      "fund_share_snapshot": {
+        "party-metro": 0.5,
+        "party-stewardship": 0.3,
+        "party-community": 0.2
+      },
+      "approved_by_party_ids": [
+        "party-metro",
+        "party-stewardship-team2",
+        "party-community"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00072",
+    "event_type": "MAINTENANCE_FUND_DRAWN",
+    "aggregate_type": "fund_agreement",
+    "aggregate_id": "fund-daolang-001",
+    "occurred_at": "2027-10-09T10:00:00+08:00",
+    "version": 4,
+    "summary": "拨付1200元",
+    "actor": {
+      "party_id": "party-stewardship-team2"
+    },
+    "payload": {
+      "fund_id": "fund-daolang-001",
+      "case_id": "case-2027-tile-loose",
+      "amount": 1200,
+      "purpose": "松动饰面砖重新固定",
+      "approved_by_party_ids": [
+        "party-stewardship-team2"
+      ],
+      "drawn_at": "2027-10-09"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00073",
+    "event_type": "REPAIR_COMPLETED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2027-tile-loose",
+    "occurred_at": "2027-10-20T15:00:00+08:00",
+    "version": 5,
+    "summary": "二组完成维修",
+    "actor": {
+      "party_id": "party-stewardship-team2"
+    },
+    "payload": {
+      "case_id": "case-2027-tile-loose",
+      "completed_at": "2027-10-20T15:00:00+08:00",
+      "work_done": [
+        "松动饰面砖清除重贴",
+        "勾缝处理"
+      ],
+      "cost": 1200,
+      "warranty_extension_months": 0
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00074",
+    "event_type": "REPAIR_ACCEPTED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2027-tile-loose",
+    "occurred_at": "2027-10-22T10:00:00+08:00",
+    "version": 6,
+    "summary": "维修验收通过，案件关闭",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "case_id": "case-2027-tile-loose",
+      "accepted_by_party_id": "party-community",
+      "accepted_at": "2027-10-22T10:00:00+08:00",
+      "result": "饰面砖牢固，勾缝平整"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00075",
+    "event_type": "DESIGN_CHANGE_REQUESTED",
+    "aggregate_type": "design_revision",
+    "aggregate_id": "design-daolang",
+    "occurred_at": "2028-03-01T10:00:00+08:00",
+    "version": 4,
+    "summary": "社区提议增设低照度洗墙灯呼应夜间稻浪（重大改造）",
+    "actor": {
+      "party_id": "party-community"
+    },
+    "payload": {
+      "change_request_id": "cr-2028-lighting",
+      "artwork_id": "artwork-daolang",
+      "scope_class": "major",
+      "description": "顶部增设低照度防眩洗墙灯，不改动浮雕主体",
+      "requested_by_party_id": "party-community"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00076",
+    "event_type": "DESIGN_CHANGE_REVIEWED",
+    "aggregate_type": "design_revision",
+    "aggregate_id": "design-daolang",
+    "occurred_at": "2028-03-10T10:00:00+08:00",
+    "version": 5,
+    "summary": "评审通过：低眩光、不改变浮雕主体、电源走检修井；重大改造须形成新版本",
+    "actor": {
+      "party_id": "party-teacher-zhou"
+    },
+    "payload": {
+      "change_request_id": "cr-2028-lighting",
+      "scope_class": "major",
+      "approved": true,
+      "reviewed_by_party_id": "party-teacher-zhou",
+      "rationale": "照明指标满足通道无眩光要求，浮雕本体不改动；属重大改造，开启作品 v2 后施工"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00077",
+    "event_type": "ARTWORK_VERSION_OPENED",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2028-03-12T10:00:00+08:00",
+    "version": 6,
+    "summary": "重大改造开启作品 v2《稻浪墙·夜光》",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "new_version": 2,
+      "reason": "增设低照度洗墙灯",
+      "change_request_id": "cr-2028-lighting"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00078",
+    "event_type": "CONSTRUCTION_PLAN_FILED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v2",
+    "occurred_at": "2028-04-02T10:00:00+08:00",
+    "version": 1,
+    "summary": "v2 施工方案报备，版本号与作品当前版本一致",
+    "actor": {
+      "party_id": "party-builder-hengyan"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v2",
+      "artwork_id": "artwork-daolang",
+      "contractor_party_id": "party-builder-hengyan",
+      "safety_officer_party_id": "party-officer-zhao",
+      "method_statement_uri": "docs/construction/v2-method.pdf",
+      "risk_assessment": [
+        "临电使用检修井电源",
+        "高处作业平台车"
+      ],
+      "for_version": 2
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00079",
+    "event_type": "SAFETY_FILING_APPROVED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v2",
+    "occurred_at": "2028-04-05T14:00:00+08:00",
+    "version": 2,
+    "summary": "v2 安全报备获批",
+    "actor": {
+      "party_id": "party-officer-zhao"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v2",
+      "approved_by_party_id": "party-officer-zhao",
+      "conditions": [
+        "平台作业区围挡",
+        "停运电梯口导流"
+      ],
+      "valid_until": "2028-06-30",
+      "minor_participation_arrangement": null
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00080",
+    "event_type": "CONSTRUCTION_LOGGED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v2",
+    "occurred_at": "2028-04-20T22:00:00+08:00",
+    "version": 3,
+    "summary": "v2 施工：夜间停运窗口安装洗墙灯",
+    "actor": {
+      "party_id": "party-officer-zhao"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v2",
+      "log_date": "2028-04-20",
+      "activities": [
+        "洗墙灯安装",
+        "线缆穿检修井"
+      ],
+      "participant_party_ids": [
+        "party-builder-hengyan",
+        "party-officer-zhao"
+      ],
+      "ppe_confirmed": true
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00081",
+    "event_type": "WORK_SUBMITTED",
+    "aggregate_type": "construction_project",
+    "aggregate_id": "construction-daolang-v2",
+    "occurred_at": "2028-05-20T10:00:00+08:00",
+    "version": 4,
+    "summary": "v2 报验",
+    "actor": {
+      "party_id": "party-builder-hengyan"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v2",
+      "submitted_at": "2028-05-20",
+      "as_built_uri": "docs/construction/v2-asbuilt.pdf",
+      "warranty_terms": "两年保修，含灯具"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00082",
+    "event_type": "WORK_ACCEPTED",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2028-05-25T10:00:00+08:00",
+    "version": 7,
+    "summary": "v2 竣工验收通过，新一轮两年保修起算",
+    "actor": {
+      "party_id": "party-metro"
+    },
+    "payload": {
+      "construction_id": "construction-daolang-v2",
+      "accepted_by_party_ids": [
+        "party-stewardship",
+        "party-metro",
+        "party-community"
+      ],
+      "warranty_until": "2030-05-25",
+      "warranty_covered_party_id": "party-builder-hengyan"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00083",
+    "event_type": "SITE_PERMIT_CLOSED",
+    "aggregate_type": "site_agreement",
+    "aggregate_id": "site-metro-line7-b-exit-wall",
+    "occurred_at": "2030-03-14T10:00:00+08:00",
+    "version": 9,
+    "summary": "场地许可到期未续（站点通道改造规划）",
+    "actor": {
+      "party_id": "party-metro"
+    },
+    "payload": {
+      "site_id": "site-metro-line7-b-exit-wall",
+      "reason": "许可期满，站点纳入无障碍改造规划"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00084",
+    "event_type": "INSPECTION_COMPLETED",
+    "aggregate_type": "inspection_record",
+    "aggregate_id": "inspection-daolang",
+    "occurred_at": "2031-01-08T10:00:00+08:00",
+    "version": 6,
+    "summary": "巡检发现墙体基层整体失效、多处空鼓",
+    "actor": {
+      "party_id": "party-stewardship-team2"
+    },
+    "payload": {
+      "inspection_id": "insp-2031-01",
+      "artwork_id": "artwork-daolang",
+      "inspected_at": "2031-01-08",
+      "inspector_party_id": "party-stewardship-team2",
+      "findings": "墙体基层整体失效，浮雕多处空鼓，已无维修价值",
+      "severity": "high",
+      "photo_uris": [
+        "media/inspect-2031-01.jpg"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00085",
+    "event_type": "DAMAGE_REPORTED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2031-decommission",
+    "occurred_at": "2031-01-10T09:00:00+08:00",
+    "version": 1,
+    "summary": "报损：过保且场地许可到期，拟走拆除路径；系统仍自动带出责任人为保管方",
+    "actor": {
+      "party_id": "party-stewardship-team2"
+    },
+    "payload": {
+      "case_id": "case-2031-decommission",
+      "artwork_id": "artwork-daolang",
+      "symptom": "墙体基层整体失效、多处空鼓",
+      "reported_by_party_id": "party-stewardship-team2",
+      "reported_at": "2031-01-10T09:00:00+08:00",
+      "source": "inspection",
+      "inspection_id": "insp-2031-01",
+      "responsible_snapshot": {
+        "basis": "custody",
+        "responsible_party_id": "party-stewardship-team2"
+      },
+      "fund_snapshot": {
+        "fund_id": "fund-daolang-001",
+        "shares": {
+          "party-metro": 0.5,
+          "party-stewardship": 0.3,
+          "party-community": 0.2
+        },
+        "per_case_cap": 20000
+      }
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00086",
+    "event_type": "DEMOLITION_PROPOSED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2031-decommission",
+    "occurred_at": "2031-01-15T10:00:00+08:00",
+    "version": 2,
+    "summary": "养护站提议拆除：无维修价值且许可到期",
+    "actor": {
+      "party_id": "party-stewardship-team2"
+    },
+    "payload": {
+      "case_id": "case-2031-decommission",
+      "artwork_id": "artwork-daolang",
+      "reason": "墙体基层整体失效无维修价值；场地许可到期，通道改造在即",
+      "proposed_by_party_id": "party-stewardship-team2",
+      "proposed_at": "2031-01-15T10:00:00+08:00"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00087",
+    "event_type": "ARTWORK_DECOMMISSION_APPROVED",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2031-01-18T10:00:00+08:00",
+    "version": 8,
+    "summary": "地铁、养护站、社区共同批准正式拆除，明确打谷机残余构件去向",
+    "actor": {
+      "party_id": "party-metro"
+    },
+    "payload": {
+      "reason": "无维修价值+许可到期",
+      "decision_party_ids": [
+        "party-metro",
+        "party-stewardship",
+        "party-community"
+      ],
+      "material_disposition": "打谷机残余构件移交村史馆，其余构件安全清运"
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00088",
+    "event_type": "DEMOLITION_APPROVED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2031-decommission",
+    "occurred_at": "2031-01-22T10:00:00+08:00",
+    "version": 3,
+    "summary": "拆除方案获批并公示",
+    "actor": {
+      "party_id": "party-metro"
+    },
+    "payload": {
+      "case_id": "case-2031-decommission",
+      "decision_party_ids": [
+        "party-metro",
+        "party-stewardship",
+        "party-community"
+      ],
+      "approved_at": "2031-01-22T10:00:00+08:00",
+      "notice_uris": [
+        "docs/demolition/notice-2031.pdf"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00089",
+    "event_type": "DEMOLITION_COMPLETED",
+    "aggregate_type": "maintenance_case",
+    "aggregate_id": "case-2031-decommission",
+    "occurred_at": "2031-02-10T16:00:00+08:00",
+    "version": 4,
+    "summary": "拆除完成：打谷机残余构件入村史馆，全过程影像与口述档案归档",
+    "actor": {
+      "party_id": "party-stewardship-team2"
+    },
+    "payload": {
+      "case_id": "case-2031-decommission",
+      "completed_at": "2031-02-10T16:00:00+08:00",
+      "material_disposition": {
+        "material-old-thresher-01": "残余构件移交荷花里村史馆陈列",
+        "other": "不可用构件安全清运"
+      },
+      "archived_uris": [
+        "archive/daolang-asbuilt.zip",
+        "archive/daolang-interviews.zip"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  },
+  {
+    "event_id": "evt-00090",
+    "event_type": "ARTWORK_DECOMMISSIONED",
+    "aggregate_type": "artwork",
+    "aggregate_id": "artwork-daolang",
+    "occurred_at": "2031-02-11T10:00:00+08:00",
+    "version": 9,
+    "summary": "作品生命周期终结，档案留存",
+    "actor": {
+      "party_id": "party-stewardship"
+    },
+    "payload": {
+      "demolition_case_id": "case-2031-decommission",
+      "archived_uris": [
+        "archive/daolang-asbuilt.zip",
+        "archive/daolang-interviews.zip",
+        "archive/daolang-credits.pdf"
+      ]
+    },
+    "correlation_id": "flow-daolang-full-life"
+  }
+]

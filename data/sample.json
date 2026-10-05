@@ -1,9 +1,21 @@
 {
-  "event_id": "evt-092105-006-0001",
-  "event_type": "INPUT_COLLECTED",
-  "aggregate_type": "site_agreement",
-  "aggregate_id": "public-art-stewardship-001",
-  "occurred_at": "2026-09-20T12:00:00+08:00",
+  "event_id": "evt-00001",
+  "event_type": "ARTWORK_REGISTERED",
+  "aggregate_type": "artwork",
+  "aggregate_id": "artwork-daolang",
+  "occurred_at": "2025-03-03T09:00:00+08:00",
   "version": 1,
-  "summary": "登记公共艺术共创养护的首条领域记录"
+  "summary": "青禾学校在地课程项目《稻浪墙》立项，落地地铁7号线B口通道墙",
+  "actor": {
+    "party_id": "party-teacher-li"
+  },
+  "payload": {
+    "title": "稻浪墙",
+    "site_id": "site-metro-line7-b-exit-wall",
+    "lead_school_party_id": "party-school",
+    "coordinator_party_id": "party-teacher-li",
+    "curriculum_term_id": "term-2025-spring",
+    "expected_lifetime_years": 6
+  },
+  "correlation_id": "flow-daolang-full-life"
 }

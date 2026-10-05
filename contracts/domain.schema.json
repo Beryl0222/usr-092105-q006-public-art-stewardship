@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "公共艺术共创养护领域事件",
-  "description": "用于跨模块交换事实记录的公共信封。",
+  "description": "跨模块交换事实记录的公共信封。事件类型与聚合的配对及各事件 payload 必填项见 event-catalog.json；site_agreement / design_revision / contribution_record / maintenance_case 的公共事件语义保持稳定。",
   "type": "object",
   "required": [
     "event_id",
@@ -16,28 +16,75 @@
     "event_id": {
       "type": "string",
       "minLength": 8,
-      "description": "事件唯一标识"
+      "description": "事件唯一标识；来源系统重试必须沿用原标识"
     },
     "event_type": {
       "type": "string",
       "enum": [
-        "INPUT_COLLECTED",
-        "DESIGN_DECIDED",
-        "MATERIAL_ACCEPTED",
+        "ARTWORK_REGISTERED",
         "WORK_ACCEPTED",
-        "REPAIR_ASSIGNED"
+        "ARTWORK_VERSION_OPENED",
+        "ARTWORK_HANDED_OVER",
+        "ARTWORK_DECOMMISSION_APPROVED",
+        "ARTWORK_DECOMMISSIONED",
+        "ARTWORK_INFO_PUBLISHED",
+        "SITE_PERMIT_REQUESTED",
+        "SITE_PERMIT_GRANTED",
+        "SITE_PERMIT_CLOSED",
+        "INPUT_COLLECTED",
+        "PUBLIC_INPUT_SUMMARY_PUBLISHED",
+        "DESIGN_REVISION_PROPOSED",
+        "DESIGN_TRADEOFF_RECORDED",
+        "DESIGN_DECIDED",
+        "DESIGN_CHANGE_REQUESTED",
+        "DESIGN_CHANGE_REVIEWED",
+        "CONTRIBUTOR_REGISTERED",
+        "CONTRIBUTION_AGREEMENT_SIGNED",
+        "MATERIAL_DONATION_OFFERED",
+        "MATERIAL_OWNERSHIP_VERIFIED",
+        "MATERIAL_ACCEPTED",
+        "MATERIAL_RECONSENTED",
+        "MATERIAL_USE_RECONCILED",
+        "PARTICIPANT_AUTHORIZATION_GRANTED",
+        "AUTHORIZATION_WITHDRAWN",
+        "CREDIT_DECIDED",
+        "DISPUTE_FILED",
+        "DISPUTE_RESOLVED",
+        "PUBLICATION_RELEASED",
+        "CONSTRUCTION_PLAN_FILED",
+        "SAFETY_FILING_APPROVED",
+        "CONSTRUCTION_LOGGED",
+        "SAFETY_INCIDENT_REPORTED",
+        "WORK_SUBMITTED",
+        "MAINTENANCE_FUND_AGREED",
+        "MAINTENANCE_FUND_DRAWN",
+        "INSPECTION_PLAN_SET",
+        "INSPECTION_COMPLETED",
+        "DAMAGE_REPORTED",
+        "REPAIR_ASSIGNED",
+        "REPAIR_QUOTE_APPROVED",
+        "REPAIR_COMPLETED",
+        "REPAIR_ACCEPTED",
+        "CASE_OWNERSHIP_TRANSFERRED",
+        "DEMOLITION_PROPOSED",
+        "DEMOLITION_APPROVED",
+        "DEMOLITION_COMPLETED"
       ],
       "description": "本领域事件类型"
     },
     "aggregate_type": {
       "type": "string",
       "enum": [
+        "artwork",
         "site_agreement",
         "design_revision",
         "contribution_record",
+        "construction_project",
+        "fund_agreement",
+        "inspection_record",
         "maintenance_case"
       ],
-      "description": "业务对象类型"
+      "description": "业务对象类型；后四类聚合围绕原有四类聚合的全生命周期扩展"
     },
     "aggregate_id": {
       "type": "string",
@@ -47,17 +94,40 @@
     "occurred_at": {
       "type": "string",
       "format": "date-time",
-      "description": "事实发生时间"
+      "description": "事实真实发生时间（不是入库时间）"
     },
     "version": {
       "type": "integer",
       "minimum": 1,
-      "description": "对象版本"
+      "description": "该聚合上的对象版本，从 1 开始连续递增"
     },
     "summary": {
       "type": "string",
       "minLength": 2,
       "description": "中文事实摘要"
+    },
+    "actor": {
+      "type": "object",
+      "description": "事实记录的操作方（系统或机构角色）",
+      "required": ["party_id"],
+      "properties": {
+        "party_id": { "type": "string", "minLength": 1 },
+        "role": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "payload": {
+      "type": "object",
+      "description": "事件事实内容；必填项由 event-catalog.json 规定",
+      "additionalProperties": true
+    },
+    "correlation_id": {
+      "type": "string",
+      "description": "跨聚合同一流程的关联标识，如同一作品/同一课程批次"
+    },
+    "causation_id": {
+      "type": "string",
+      "description": "触发本事件的上游事件或命令标识"
     }
   },
   "additionalProperties": true
