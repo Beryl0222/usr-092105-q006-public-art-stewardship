@@ -1,9 +1,16 @@
 {
   "event_id": "evt-092105-006-0001",
   "event_type": "INPUT_COLLECTED",
-  "aggregate_type": "site_agreement",
+  "aggregate_type": "design_revision",
   "aggregate_id": "public-art-stewardship-001",
   "occurred_at": "2026-09-20T12:00:00+08:00",
   "version": 1,
-  "summary": "登记公共艺术共创养护的首条领域记录"
+  "summary": "登记公共艺术共创养护的首条领域记录",
+  "payload": {
+    "channel": "questionnaire",
+    "contributor_ref": "public-questionnaire-001",
+    "topic": "社区居民对艺术墙方案的意向",
+    "consent_refs": [],
+    "support_count": 1
+  }
 }

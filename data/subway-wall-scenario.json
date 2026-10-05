@@ -1,0 +1,497 @@
+{
+  "scenario": "地铁2号线梧桐站公共艺术墙：从场地许可到开裂维修的全生命周期",
+  "background": "艺术墙落成一年后出现裂缝，课程已结项、负责人已调动；捐赠者质疑旧打谷机改造超出同意范围。本事件流演示系统如何让责任、授权与案件始终可核对。",
+  "events": [
+    {
+      "event_id": "evt-wt-001",
+      "event_type": "SITE_PERMISSION_GRANTED",
+      "aggregate_type": "site_agreement",
+      "aggregate_id": "site-wutong-wall-001",
+      "occurred_at": "2025-03-01T09:00:00+08:00",
+      "version": 1,
+      "summary": "地铁公司许可梧桐站通道墙面用于公共艺术墙",
+      "payload": {
+        "site_owner": "市地铁运营有限公司",
+        "location": "地铁2号线梧桐站B出入口通道北侧墙面",
+        "permitted_use": "公共艺术墙展示与社区共创养护",
+        "valid_from": "2025-03-01",
+        "valid_until": "2030-02-28",
+        "conditions": ["不得占用疏散通道净宽", "每季度联合安全自查"]
+      }
+    },
+    {
+      "event_id": "evt-wt-002",
+      "event_type": "STEWARDSHIP_TERMS_SET",
+      "aggregate_type": "site_agreement",
+      "aggregate_id": "site-wutong-wall-001",
+      "occurred_at": "2025-03-05T10:00:00+08:00",
+      "version": 2,
+      "summary": "约定梧桐中学为日常责任人，维修资金学校六成、社区四成",
+      "payload": {
+        "steward": { "name": "林岚", "org": "梧桐中学美术组", "role": "课程负责人" },
+        "funding": {
+          "repair_fund": [
+            { "party": "梧桐中学", "share": 0.6 },
+            { "party": "梧桐社区居委会", "share": 0.4 }
+          ],
+          "note": "维修资金按约定比例分担，单笔超两万元需双方书面确认"
+        },
+        "inspection_interval_days": 90,
+        "effective_from": "2025-03-05"
+      }
+    },
+    {
+      "event_id": "evt-wt-003",
+      "event_type": "CONSENT_GRANTED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "person-zhou",
+      "occurred_at": "2025-03-12T14:00:00+08:00",
+      "version": 1,
+      "summary": "周阿婆授权口述记忆用于创作与介绍页",
+      "payload": {
+        "participant_ref": "person-zhou",
+        "scope": "oral_history",
+        "is_minor": false,
+        "granted_uses": ["作品创作素材", "作品介绍页引用"],
+        "revocable": true,
+        "expires_at": null
+      }
+    },
+    {
+      "event_id": "evt-wt-004",
+      "event_type": "CONSENT_GRANTED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "person-xiaoyu",
+      "occurred_at": "2025-03-12T14:30:00+08:00",
+      "version": 1,
+      "summary": "学生小雨的影像经监护人签署授权",
+      "payload": {
+        "participant_ref": "person-xiaoyu",
+        "scope": "minor_image",
+        "is_minor": true,
+        "guardian": { "name": "肖建国", "relation": "父亲" },
+        "granted_uses": ["作品介绍页展示", "课程档案"],
+        "revocable": true,
+        "expires_at": null
+      }
+    },
+    {
+      "event_id": "evt-wt-005",
+      "event_type": "CONSENT_GRANTED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "person-chen",
+      "occurred_at": "2025-03-15T10:00:00+08:00",
+      "version": 1,
+      "summary": "陈守义授权捐赠旧打谷机用于艺术墙",
+      "payload": {
+        "participant_ref": "person-chen",
+        "scope": "material_donation",
+        "is_minor": false,
+        "granted_uses": ["旧打谷机捐赠并用于艺术墙基座展示"],
+        "revocable": false,
+        "expires_at": null
+      }
+    },
+    {
+      "event_id": "evt-wt-006",
+      "event_type": "INPUT_COLLECTED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2025-03-20T15:00:00+08:00",
+      "version": 1,
+      "summary": "采集周阿婆关于秋收与打谷机的口述记忆",
+      "payload": {
+        "channel": "interview",
+        "contributor_ref": "person-zhou",
+        "topic": "秋收与打谷机的社区记忆",
+        "content_ref": "archive/interview-zhou-001",
+        "consent_refs": ["evt-wt-003"]
+      }
+    },
+    {
+      "event_id": "evt-wt-007",
+      "event_type": "INPUT_COLLECTED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2025-03-28T18:00:00+08:00",
+      "version": 2,
+      "summary": "问卷显示多数居民偏好高饱和亮色方案",
+      "payload": {
+        "channel": "questionnaire",
+        "contributor_ref": "public-questionnaire-2025-01",
+        "topic": "艺术墙配色公众意向",
+        "consent_refs": [],
+        "support_count": 214
+      }
+    },
+    {
+      "event_id": "evt-wt-008",
+      "event_type": "DESIGN_DECIDED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2025-04-10T10:00:00+08:00",
+      "version": 3,
+      "summary": "首稿设计定稿：未采纳多数派亮色方案并记录理由",
+      "payload": {
+        "revision_no": 1,
+        "considered_inputs": ["evt-wt-006", "evt-wt-007"],
+        "rationale": {
+          "adopted": [
+            { "option": "深灰底配暖色记忆浮雕", "reason": "通道照度低，深色底耐候且突出秋收浮雕主题" }
+          ],
+          "rejected": [
+            {
+              "option": "高饱和亮色方案",
+              "reason": "问卷虽占多数，但通道光环境下易显脏，且与地铁导向标识系统冲突",
+              "support_count": 214
+            }
+          ]
+        },
+        "decided_by": ["课程设计组", "地铁公司站务代表"]
+      }
+    },
+    {
+      "event_id": "evt-wt-009",
+      "event_type": "MATERIAL_ACCEPTED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2025-04-15T11:00:00+08:00",
+      "version": 4,
+      "summary": "旧打谷机进场，权属为捐赠，约定改造范围",
+      "payload": {
+        "item": "旧打谷机（1978年木铁结构）",
+        "donor_ref": "person-chen",
+        "ownership": "donated",
+        "agreed_scope": "作为墙面中央基座整体展示，保留主体木结构，不切割、不改色",
+        "consent_ref": "evt-wt-005",
+        "condition_note": "进场时左侧支架有旧裂"
+      }
+    },
+    {
+      "event_id": "evt-wt-010",
+      "event_type": "CONSENT_GRANTED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "person-zhou",
+      "occurred_at": "2025-04-20T09:00:00+08:00",
+      "version": 2,
+      "summary": "周阿婆授权实名署名",
+      "payload": {
+        "participant_ref": "person-zhou",
+        "scope": "attribution",
+        "is_minor": false,
+        "granted_uses": ["作品介绍页实名署名"],
+        "revocable": true,
+        "expires_at": null
+      }
+    },
+    {
+      "event_id": "evt-wt-011",
+      "event_type": "CONSENT_GRANTED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "group-class-2026",
+      "occurred_at": "2025-04-20T09:30:00+08:00",
+      "version": 1,
+      "summary": "共创班授权集体署名",
+      "payload": {
+        "participant_ref": "group-class-2026",
+        "scope": "attribution",
+        "is_minor": false,
+        "granted_uses": ["作品介绍页集体署名"],
+        "revocable": true,
+        "expires_at": null
+      }
+    },
+    {
+      "event_id": "evt-wt-012",
+      "event_type": "SAFETY_CLEARED",
+      "aggregate_type": "maintenance_case",
+      "aggregate_id": "case-wutong-wall-001-build",
+      "occurred_at": "2025-05-08T09:00:00+08:00",
+      "version": 1,
+      "summary": "施工前安全检查通过",
+      "payload": {
+        "phase": "pre_construction",
+        "checklist": [
+          { "item": "墙面承重与挂件锚固", "result": "pass" },
+          { "item": "施工围挡与夜间警示照明", "result": "pass" }
+        ],
+        "inspector": "地铁公司工程部 王工",
+        "hazards_found": [],
+        "measures": []
+      }
+    },
+    {
+      "event_id": "evt-wt-013",
+      "event_type": "SAFETY_CLEARED",
+      "aggregate_type": "maintenance_case",
+      "aggregate_id": "case-wutong-wall-001-build",
+      "occurred_at": "2025-09-20T16:00:00+08:00",
+      "version": 2,
+      "summary": "竣工前安全检查通过",
+      "payload": {
+        "phase": "pre_acceptance",
+        "checklist": [
+          { "item": "浮雕挂件防坠落", "result": "pass" },
+          { "item": "打谷机基座固定", "result": "pass" }
+        ],
+        "inspector": "地铁公司工程部 王工",
+        "hazards_found": [],
+        "measures": []
+      }
+    },
+    {
+      "event_id": "evt-wt-014",
+      "event_type": "WORK_ACCEPTED",
+      "aggregate_type": "maintenance_case",
+      "aggregate_id": "case-wutong-wall-001-build",
+      "occurred_at": "2025-09-30T10:00:00+08:00",
+      "version": 3,
+      "summary": "艺术墙竣工验收通过，质保两年",
+      "payload": {
+        "acceptance_party": ["梧桐中学", "市地铁运营有限公司", "市建装修缮公司"],
+        "result": "pass",
+        "defects": [],
+        "warranty_until": "2027-09-30",
+        "archive_refs": ["竣工图", "材料合格证"]
+      }
+    },
+    {
+      "event_id": "evt-wt-015",
+      "event_type": "WORK_VERSION_PUBLISHED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2025-09-30T11:00:00+08:00",
+      "version": 5,
+      "summary": "作品首版（v1）落成",
+      "payload": {
+        "version_no": 1,
+        "change_type": "major",
+        "based_on_revision": "evt-wt-008",
+        "changes_summary": "首版落成"
+      }
+    },
+    {
+      "event_id": "evt-wt-016",
+      "event_type": "ATTRIBUTION_RECORDED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "person-zhou",
+      "occurred_at": "2025-10-08T09:00:00+08:00",
+      "version": 3,
+      "summary": "周阿婆以实名作为口述贡献者署名",
+      "payload": {
+        "participant_ref": "person-zhou",
+        "contribution_type": "interview",
+        "display_form": "real_name",
+        "consent_ref": "evt-wt-010",
+        "work_version_ref": "evt-wt-015"
+      }
+    },
+    {
+      "event_id": "evt-wt-017",
+      "event_type": "ATTRIBUTION_RECORDED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "group-class-2026",
+      "occurred_at": "2025-10-08T09:10:00+08:00",
+      "version": 2,
+      "summary": "共创班以集体名义署名",
+      "payload": {
+        "participant_ref": "group-class-2026",
+        "contribution_type": "design",
+        "display_form": "collective",
+        "consent_ref": "evt-wt-011",
+        "work_version_ref": "evt-wt-015"
+      }
+    },
+    {
+      "event_id": "evt-wt-018",
+      "event_type": "WORK_PROFILE_PUBLISHED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2025-10-08T10:00:00+08:00",
+      "version": 6,
+      "summary": "作品介绍页上线，说明采用的在地记忆与材料",
+      "payload": {
+        "work_version_ref": "evt-wt-015",
+        "adopted_memories": [
+          { "input_ref": "evt-wt-006", "note": "采用周阿婆口述的秋收场景作为浮雕主题" }
+        ],
+        "adopted_materials": [
+          { "material_ref": "evt-wt-009", "note": "打谷机主体作为墙面中央基座整体展示" }
+        ],
+        "attribution_display": [
+          { "contribution_ref": "evt-wt-016" },
+          { "contribution_ref": "evt-wt-017" }
+        ]
+      }
+    },
+    {
+      "event_id": "evt-wt-019",
+      "event_type": "CUSTODY_TRANSFERRED",
+      "aggregate_type": "site_agreement",
+      "aggregate_id": "site-wutong-wall-001",
+      "occurred_at": "2026-06-30T15:00:00+08:00",
+      "version": 3,
+      "summary": "课程结束，养护责任移交社区文化中心",
+      "payload": {
+        "reason": "course_ended",
+        "from_steward": { "name": "林岚", "org": "梧桐中学美术组", "role": "课程负责人" },
+        "to_steward": { "name": "王敏", "org": "梧桐社区文化中心", "role": "场馆负责人" },
+        "open_case_refs": ["case-wutong-wall-001-build"],
+        "handover_note": "课程结项，养护档案与责任一并移交社区文化中心"
+      }
+    },
+    {
+      "event_id": "evt-wt-020",
+      "event_type": "INSPECTION_LOGGED",
+      "aggregate_type": "maintenance_case",
+      "aggregate_id": "case-wutong-wall-001-build",
+      "occurred_at": "2026-09-28T11:00:00+08:00",
+      "version": 4,
+      "summary": "例行巡检发现墙面裂缝",
+      "payload": {
+        "inspector": "社区文化中心值班员",
+        "condition_grade": "B",
+        "findings": ["北侧拼缝出现约40厘米裂缝，饰面局部起翘"],
+        "next_due": "2026-12-28"
+      }
+    },
+    {
+      "event_id": "evt-wt-021",
+      "event_type": "DAMAGE_REPORTED",
+      "aggregate_type": "maintenance_case",
+      "aggregate_id": "case-wutong-wall-001-repair-01",
+      "occurred_at": "2026-10-02T09:30:00+08:00",
+      "version": 1,
+      "summary": "报损单登记裂缝，自动带出当前责任人与资金约定",
+      "payload": {
+        "description": "艺术墙北侧拼缝开裂约40厘米，饰面起翘",
+        "reported_by": "社区居民 刘女士",
+        "severity": "medium",
+        "photos": ["photo-20261002-01"],
+        "responsible_steward": { "name": "王敏", "org": "梧桐社区文化中心", "role": "场馆负责人" },
+        "funding_terms": {
+          "repair_fund": [
+            { "party": "梧桐中学", "share": 0.6 },
+            { "party": "梧桐社区居委会", "share": 0.4 }
+          ],
+          "note": "维修资金按约定比例分担，单笔超两万元需双方书面确认"
+        }
+      }
+    },
+    {
+      "event_id": "evt-wt-022",
+      "event_type": "DISPUTE_RAISED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "person-chen",
+      "occurred_at": "2026-10-03T10:00:00+08:00",
+      "version": 2,
+      "summary": "捐赠者质疑打谷机改造超出同意范围",
+      "payload": {
+        "target_kind": "material_scope",
+        "target_ref": "evt-wt-009",
+        "raised_by": "person-chen",
+        "claim": "打谷机支架被切割改色，超出捐赠时同意的改造范围"
+      }
+    },
+    {
+      "event_id": "evt-wt-023",
+      "event_type": "DISPUTE_RESOLVED",
+      "aggregate_type": "contribution_record",
+      "aggregate_id": "person-chen",
+      "occurred_at": "2026-10-04T15:00:00+08:00",
+      "version": 3,
+      "summary": "核对原授权后确认超范围，责令恢复",
+      "payload": {
+        "dispute_ref": "evt-wt-022",
+        "verified_against": ["evt-wt-009", "evt-wt-005"],
+        "outcome": "restore_scope",
+        "resolution_note": "核对捐赠授权与进场约定：支架切割确属超范围，施工方恢复原定展示方式，介绍页补充说明"
+      }
+    },
+    {
+      "event_id": "evt-wt-024",
+      "event_type": "INPUT_COLLECTED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2026-10-04T16:00:00+08:00",
+      "version": 7,
+      "summary": "现场意见希望修复后减少涂鸦",
+      "payload": {
+        "channel": "field_comment",
+        "contributor_ref": "residents-onsite-2026-10",
+        "topic": "修复方案现场意见：希望提升防涂鸦能力",
+        "consent_refs": []
+      }
+    },
+    {
+      "event_id": "evt-wt-025",
+      "event_type": "DESIGN_DECIDED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2026-10-04T17:00:00+08:00",
+      "version": 8,
+      "summary": "维修方案定稿：更换饰面材料属重大改造",
+      "payload": {
+        "revision_no": 2,
+        "considered_inputs": ["evt-wt-024"],
+        "rationale": {
+          "adopted": [
+            { "option": "饰面更换为陶板并加防涂鸦涂层", "reason": "原饰面已起翘，陶板耐候易清理，回应现场防涂鸦诉求" }
+          ],
+          "rejected": [
+            { "option": "按原样修复不更换材料", "reason": "原材料已被证明不耐候，且无法满足防涂鸦需求" }
+          ]
+        },
+        "decided_by": ["社区文化中心", "地铁公司站务代表"]
+      }
+    },
+    {
+      "event_id": "evt-wt-026",
+      "event_type": "WORK_VERSION_PUBLISHED",
+      "aggregate_type": "design_revision",
+      "aggregate_id": "design-wutong-wall-001",
+      "occurred_at": "2026-10-04T17:30:00+08:00",
+      "version": 9,
+      "summary": "重大改造形成作品 v2",
+      "payload": {
+        "version_no": 2,
+        "change_type": "major",
+        "based_on_revision": "evt-wt-025",
+        "changes_summary": "维修同时更换饰面为陶板并加防涂鸦涂层"
+      }
+    },
+    {
+      "event_id": "evt-wt-027",
+      "event_type": "REPAIR_BUDGETED",
+      "aggregate_type": "maintenance_case",
+      "aggregate_id": "case-wutong-wall-001-repair-01",
+      "occurred_at": "2026-10-05T09:00:00+08:00",
+      "version": 2,
+      "summary": "维修预算一万八，按资金约定分摊",
+      "payload": {
+        "items": [{ "name": "裂缝注浆与陶板饰面更换", "amount": 18000 }],
+        "total": 18000,
+        "funding_split": [
+          { "party": "梧桐中学", "share": 0.6, "amount": 10800 },
+          { "party": "梧桐社区居委会", "share": 0.4, "amount": 7200 }
+        ],
+        "approved_by": ["梧桐中学总务处", "梧桐社区居委会"]
+      }
+    },
+    {
+      "event_id": "evt-wt-028",
+      "event_type": "REPAIR_ASSIGNED",
+      "aggregate_type": "maintenance_case",
+      "aggregate_id": "case-wutong-wall-001-repair-01",
+      "occurred_at": "2026-10-05T10:00:00+08:00",
+      "version": 3,
+      "summary": "维修派单市建装修缮公司，限期十一月底",
+      "payload": {
+        "contractor": "市建装修缮公司",
+        "scope": "裂缝注浆、饰面更换为陶板、防涂鸦涂层",
+        "deadline": "2026-11-30",
+        "safety_requirements": ["夜间施工围挡与警示", "高空作业双钩安全带", "施工区与客流隔离"]
+      }
+    }
+  ]
+}

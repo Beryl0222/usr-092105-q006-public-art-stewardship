@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "公共艺术共创养护领域事件",
-  "description": "用于跨模块交换事实记录的公共信封。",
+  "description": "用于跨模块交换事实记录的公共信封。作品从场地许可、共创、施工、验收到巡检、维修、最终拆除的全生命周期事实，都按本信封登记；课程结束或负责人调动不影响未结案件的存续。",
   "type": "object",
   "required": [
     "event_id",
@@ -16,18 +16,34 @@
     "event_id": {
       "type": "string",
       "minLength": 8,
-      "description": "事件唯一标识"
+      "description": "事件唯一标识；来源系统重试时必须沿用原标识"
     },
     "event_type": {
       "type": "string",
       "enum": [
+        "SITE_PERMISSION_GRANTED",
+        "STEWARDSHIP_TERMS_SET",
+        "CUSTODY_TRANSFERRED",
+        "DECOMMISSION_DECIDED",
         "INPUT_COLLECTED",
         "DESIGN_DECIDED",
         "MATERIAL_ACCEPTED",
+        "WORK_VERSION_PUBLISHED",
+        "WORK_PROFILE_PUBLISHED",
+        "CONSENT_GRANTED",
+        "CONSENT_REVOKED",
+        "ATTRIBUTION_RECORDED",
+        "DISPUTE_RAISED",
+        "DISPUTE_RESOLVED",
+        "SAFETY_CLEARED",
         "WORK_ACCEPTED",
-        "REPAIR_ASSIGNED"
+        "INSPECTION_LOGGED",
+        "DAMAGE_REPORTED",
+        "REPAIR_BUDGETED",
+        "REPAIR_ASSIGNED",
+        "REPAIR_ACCEPTED"
       ],
-      "description": "本领域事件类型"
+      "description": "本领域事件类型，归属关系见各 payload 定义"
     },
     "aggregate_type": {
       "type": "string",
@@ -37,7 +53,7 @@
         "contribution_record",
         "maintenance_case"
       ],
-      "description": "业务对象类型"
+      "description": "业务对象类型：场地与责任约定 / 设计与作品版本 / 授权与署名 / 养护案件"
     },
     "aggregate_id": {
       "type": "string",
@@ -52,13 +68,496 @@
     "version": {
       "type": "integer",
       "minimum": 1,
-      "description": "对象版本"
+      "description": "对象版本，按聚合从 1 开始递增"
     },
     "summary": {
       "type": "string",
       "minLength": 2,
       "description": "中文事实摘要"
+    },
+    "payload": {
+      "type": "object",
+      "description": "业务内容，结构由 event_type 决定，见 $defs"
     }
   },
-  "additionalProperties": true
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "if": { "properties": { "event_type": { "const": "SITE_PERMISSION_GRANTED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/SitePermissionGranted" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "STEWARDSHIP_TERMS_SET" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/StewardshipTermsSet" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "CUSTODY_TRANSFERRED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/CustodyTransferred" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "DECOMMISSION_DECIDED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/DecommissionDecided" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "INPUT_COLLECTED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/InputCollected" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "DESIGN_DECIDED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/DesignDecided" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "MATERIAL_ACCEPTED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/MaterialAccepted" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "WORK_VERSION_PUBLISHED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/WorkVersionPublished" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "WORK_PROFILE_PUBLISHED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/WorkProfilePublished" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "CONSENT_GRANTED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/ConsentGranted" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "CONSENT_REVOKED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/ConsentRevoked" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "ATTRIBUTION_RECORDED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/AttributionRecorded" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "DISPUTE_RAISED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/DisputeRaised" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "DISPUTE_RESOLVED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/DisputeResolved" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "SAFETY_CLEARED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/SafetyCleared" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "WORK_ACCEPTED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/WorkAccepted" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "INSPECTION_LOGGED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/InspectionLogged" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "DAMAGE_REPORTED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/DamageReported" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "REPAIR_BUDGETED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/RepairBudgeted" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "REPAIR_ASSIGNED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/RepairAssigned" } }, "required": ["payload"] }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "REPAIR_ACCEPTED" } }, "required": ["event_type"] },
+      "then": { "properties": { "payload": { "$ref": "#/$defs/RepairAccepted" } }, "required": ["payload"] }
+    }
+  ],
+  "$defs": {
+    "Party": {
+      "type": "object",
+      "description": "责任主体",
+      "required": ["name", "org", "role"],
+      "properties": {
+        "name": { "type": "string", "description": "姓名或窗口名称" },
+        "org": { "type": "string", "description": "所属机构" },
+        "role": { "type": "string", "description": "承担角色" },
+        "contact": { "type": "string", "description": "联系方式" }
+      }
+    },
+    "FundingTerms": {
+      "type": "object",
+      "description": "资金约定：维修资金由谁按什么比例分担",
+      "required": ["repair_fund"],
+      "properties": {
+        "repair_fund": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["party", "share"],
+            "properties": {
+              "party": { "type": "string", "description": "分担方" },
+              "share": { "type": "number", "exclusiveMinimum": 0, "maximum": 1, "description": "分担比例，各方合计为 1" }
+            }
+          }
+        },
+        "note": { "type": "string", "description": "补充约定，如大额维修确认门槛" }
+      }
+    },
+    "SitePermissionGranted": {
+      "type": "object",
+      "description": "场地许可（site_agreement）",
+      "required": ["site_owner", "location", "permitted_use", "valid_from", "valid_until"],
+      "properties": {
+        "site_owner": { "type": "string", "description": "场地权属方" },
+        "location": { "type": "string", "description": "作品所在位置" },
+        "permitted_use": { "type": "string", "description": "许可用途" },
+        "valid_from": { "type": "string", "format": "date" },
+        "valid_until": { "type": "string", "format": "date" },
+        "conditions": { "type": "array", "items": { "type": "string" }, "description": "许可附带条件" }
+      }
+    },
+    "StewardshipTermsSet": {
+      "type": "object",
+      "description": "责任与资金约定（site_agreement）；后续报损单据此自动带出责任人与资金约定",
+      "required": ["steward", "funding", "inspection_interval_days", "effective_from"],
+      "properties": {
+        "steward": { "$ref": "#/$defs/Party", "description": "当前日常责任人" },
+        "funding": { "$ref": "#/$defs/FundingTerms" },
+        "inspection_interval_days": { "type": "integer", "minimum": 1, "description": "巡检间隔天数" },
+        "effective_from": { "type": "string", "format": "date" }
+      }
+    },
+    "CustodyTransferred": {
+      "type": "object",
+      "description": "负责人调动或课程结束时的移交（site_agreement）；必须列出全部未结案件，未结维修不因移交丢失",
+      "required": ["reason", "from_steward", "to_steward", "open_case_refs"],
+      "properties": {
+        "reason": { "type": "string", "enum": ["course_ended", "staff_reassigned", "org_handover"], "description": "移交原因：课程结束 / 负责人调动 / 机构交接" },
+        "from_steward": { "$ref": "#/$defs/Party" },
+        "to_steward": { "$ref": "#/$defs/Party" },
+        "open_case_refs": { "type": "array", "items": { "type": "string" }, "description": "移交时的全部未结案件编号，须与实际一致" },
+        "handover_note": { "type": "string" }
+      }
+    },
+    "DecommissionDecided": {
+      "type": "object",
+      "description": "正式拆除决定（site_agreement）；拆除后全部未结案件终结",
+      "required": ["decided_by", "reason", "material_handling"],
+      "properties": {
+        "decided_by": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "拆除决定主体" },
+        "reason": { "type": "string" },
+        "material_handling": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["material_ref", "handling"],
+            "properties": {
+              "material_ref": { "type": "string", "description": "关联 MATERIAL_ACCEPTED 事件" },
+              "handling": { "type": "string", "description": "旧物去向，如归还捐赠者" }
+            }
+          }
+        },
+        "archive_refs": { "type": "array", "items": { "type": "string" }, "description": "拆除后保留的档案" }
+      }
+    },
+    "InputCollected": {
+      "type": "object",
+      "description": "访谈与公众意见采集（design_revision）；口述记忆须引用 oral_history 授权",
+      "required": ["channel", "contributor_ref", "topic", "consent_refs"],
+      "properties": {
+        "channel": { "type": "string", "enum": ["interview", "questionnaire", "workshop", "field_comment"], "description": "采集渠道" },
+        "contributor_ref": { "type": "string", "description": "提供者标识" },
+        "topic": { "type": "string", "description": "主题" },
+        "content_ref": { "type": "string", "description": "内容存档位置" },
+        "consent_refs": { "type": "array", "items": { "type": "string" }, "description": "关联的授权记录；口述记忆必须有 oral_history 授权" },
+        "support_count": { "type": "integer", "minimum": 0, "description": "该意见的支持人数（问卷类）" }
+      }
+    },
+    "DesignDecided": {
+      "type": "object",
+      "description": "设计定稿或修订（design_revision）；意见多少不能自动替代设计判断，必须记录取舍理由",
+      "required": ["revision_no", "considered_inputs", "rationale", "decided_by"],
+      "properties": {
+        "revision_no": { "type": "integer", "minimum": 1 },
+        "considered_inputs": { "type": "array", "items": { "type": "string" }, "description": "本稿考虑的 INPUT_COLLECTED 事件" },
+        "rationale": {
+          "type": "object",
+          "required": ["adopted", "rejected"],
+          "properties": {
+            "adopted": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": ["option", "reason"],
+                "properties": {
+                  "option": { "type": "string" },
+                  "reason": { "type": "string", "description": "采纳理由" }
+                }
+              }
+            },
+            "rejected": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["option", "reason"],
+                "properties": {
+                  "option": { "type": "string" },
+                  "reason": { "type": "string", "description": "否决理由；即使该方案意见数最多也须说明" },
+                  "support_count": { "type": "integer", "minimum": 0, "description": "该方案的意见支持数，如实记录" }
+                }
+              }
+            }
+          }
+        },
+        "decided_by": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "作出设计判断的责任主体" }
+      }
+    },
+    "MaterialAccepted": {
+      "type": "object",
+      "description": "旧物进场（design_revision）；记录权属与捐赠者同意的改造范围，超范围改造可据此核对",
+      "required": ["item", "donor_ref", "ownership", "agreed_scope", "consent_ref"],
+      "properties": {
+        "item": { "type": "string", "description": "旧物名称与特征" },
+        "donor_ref": { "type": "string", "description": "捐赠或出让方标识" },
+        "ownership": { "type": "string", "enum": ["donated", "loaned", "purchased"], "description": "权属：捐赠 / 借用 / 购入" },
+        "agreed_scope": { "type": "string", "description": "捐赠者同意的改造范围" },
+        "consent_ref": { "type": "string", "description": "关联 material_donation 授权" },
+        "condition_note": { "type": "string", "description": "进场时的状况记录" }
+      }
+    },
+    "WorkVersionPublished": {
+      "type": "object",
+      "description": "作品版本（design_revision）；重大改造形成新版本，小幅调整不另立版本",
+      "required": ["version_no", "change_type", "based_on_revision", "changes_summary"],
+      "properties": {
+        "version_no": { "type": "integer", "minimum": 1 },
+        "change_type": { "type": "string", "enum": ["major", "minor"], "description": "重大改造 / 小幅调整" },
+        "based_on_revision": { "type": "string", "description": "关联的 DESIGN_DECIDED 事件" },
+        "changes_summary": { "type": "string" }
+      }
+    },
+    "WorkProfilePublished": {
+      "type": "object",
+      "description": "作品介绍页（design_revision）；说明哪些在地记忆和材料获得采用、署名如何展示",
+      "required": ["work_version_ref", "adopted_memories", "adopted_materials", "attribution_display"],
+      "properties": {
+        "work_version_ref": { "type": "string", "description": "关联的作品版本事件" },
+        "adopted_memories": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["input_ref", "note"],
+            "properties": {
+              "input_ref": { "type": "string", "description": "关联的 INPUT_COLLECTED 事件" },
+              "note": { "type": "string", "description": "采用方式说明" }
+            }
+          }
+        },
+        "adopted_materials": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["material_ref", "note"],
+            "properties": {
+              "material_ref": { "type": "string", "description": "关联的 MATERIAL_ACCEPTED 事件" },
+              "note": { "type": "string", "description": "采用方式说明" }
+            }
+          }
+        },
+        "attribution_display": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["contribution_ref"],
+            "properties": {
+              "contribution_ref": { "type": "string", "description": "关联的 ATTRIBUTION_RECORDED 事件" }
+            }
+          }
+        }
+      }
+    },
+    "ConsentGranted": {
+      "type": "object",
+      "description": "参与者授权（contribution_record）；未成年人影像与口述记忆分别授权，未成年人须监护人签署",
+      "required": ["participant_ref", "scope", "granted_uses"],
+      "properties": {
+        "participant_ref": { "type": "string", "description": "参与者标识" },
+        "scope": {
+          "type": "string",
+          "enum": ["minor_image", "oral_history", "attribution", "dissemination", "material_donation"],
+          "description": "授权范围：未成年人影像 / 口述记忆 / 署名 / 传播 / 旧物捐赠，分别授权互不替代"
+        },
+        "is_minor": { "type": "boolean" },
+        "guardian": {
+          "type": "object",
+          "required": ["name", "relation"],
+          "properties": {
+            "name": { "type": "string" },
+            "relation": { "type": "string", "description": "与未成年人的关系" }
+          },
+          "description": "监护人签署，未成年人授权必填"
+        },
+        "granted_uses": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "授权用途" },
+        "revocable": { "type": "boolean" },
+        "expires_at": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "ConsentRevoked": {
+      "type": "object",
+      "description": "授权撤销（contribution_record）",
+      "required": ["consent_ref", "published_handling"],
+      "properties": {
+        "consent_ref": { "type": "string", "description": "被撤销的 CONSENT_GRANTED 事件" },
+        "published_handling": { "type": "string", "description": "已发布内容的处置说明" }
+      }
+    },
+    "AttributionRecorded": {
+      "type": "object",
+      "description": "贡献署名（contribution_record）；署名形式须对应有效的 attribution 授权",
+      "required": ["participant_ref", "contribution_type", "display_form", "consent_ref"],
+      "properties": {
+        "participant_ref": { "type": "string" },
+        "contribution_type": { "type": "string", "enum": ["design", "interview", "material", "construction", "funding", "stewardship"], "description": "贡献类型" },
+        "display_form": { "type": "string", "enum": ["real_name", "pseudonym", "collective", "none"], "description": "署名形式：实名 / 化名 / 集体署名 / 不署名" },
+        "consent_ref": { "type": "string", "description": "关联的 attribution 授权" },
+        "work_version_ref": { "type": "string", "description": "署名对应的作品版本事件" }
+      }
+    },
+    "DisputeRaised": {
+      "type": "object",
+      "description": "署名或传播争议（contribution_record）",
+      "required": ["target_kind", "target_ref", "raised_by", "claim"],
+      "properties": {
+        "target_kind": { "type": "string", "enum": ["attribution", "dissemination", "material_scope"], "description": "争议对象：署名 / 传播 / 旧物改造范围" },
+        "target_ref": { "type": "string", "description": "争议指向的事件" },
+        "raised_by": { "type": "string" },
+        "claim": { "type": "string", "description": "争议主张" }
+      }
+    },
+    "DisputeResolved": {
+      "type": "object",
+      "description": "争议结案（contribution_record）；结案必须核对原授权或原约定",
+      "required": ["dispute_ref", "verified_against", "outcome", "resolution_note"],
+      "properties": {
+        "dispute_ref": { "type": "string", "description": "关联的 DISPUTE_RAISED 事件" },
+        "verified_against": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "结案所核对的原授权或原约定事件" },
+        "outcome": { "type": "string", "enum": ["upheld", "correct_attribution", "stop_dissemination", "restore_scope", "supplementary_consent"], "description": "结案方式" },
+        "resolution_note": { "type": "string" }
+      }
+    },
+    "SafetyCleared": {
+      "type": "object",
+      "description": "施工安全检查（maintenance_case，建设期养护档案）",
+      "required": ["phase", "checklist", "inspector"],
+      "properties": {
+        "phase": { "type": "string", "enum": ["pre_construction", "during_construction", "pre_acceptance"], "description": "检查阶段" },
+        "checklist": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["item", "result"],
+            "properties": {
+              "item": { "type": "string" },
+              "result": { "type": "string", "enum": ["pass", "fail"] }
+            }
+          }
+        },
+        "inspector": { "type": "string" },
+        "hazards_found": { "type": "array", "items": { "type": "string" } },
+        "measures": { "type": "array", "items": { "type": "string" }, "description": "隐患处置措施" }
+      }
+    },
+    "WorkAccepted": {
+      "type": "object",
+      "description": "竣工验收（maintenance_case）；验收前须完成竣工前安全检查",
+      "required": ["acceptance_party", "result", "warranty_until"],
+      "properties": {
+        "acceptance_party": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "result": { "type": "string", "enum": ["pass", "conditional_pass", "fail"] },
+        "defects": { "type": "array", "items": { "type": "string" } },
+        "warranty_until": { "type": "string", "format": "date" },
+        "archive_refs": { "type": "array", "items": { "type": "string" }, "description": "竣工资料" }
+      }
+    },
+    "InspectionLogged": {
+      "type": "object",
+      "description": "例行巡检（maintenance_case，在役养护档案）",
+      "required": ["inspector", "condition_grade", "findings"],
+      "properties": {
+        "inspector": { "type": "string" },
+        "condition_grade": { "type": "string", "enum": ["A", "B", "C", "D"], "description": "状况等级" },
+        "findings": { "type": "array", "items": { "type": "string" } },
+        "next_due": { "type": "string", "format": "date", "description": "下次巡检日期" }
+      }
+    },
+    "DamageReported": {
+      "type": "object",
+      "description": "报损单（maintenance_case，开立维修案件）；自动带出当前责任人与资金约定",
+      "required": ["description", "reported_by", "severity", "responsible_steward", "funding_terms"],
+      "properties": {
+        "description": { "type": "string" },
+        "reported_by": { "type": "string" },
+        "severity": { "type": "string", "enum": ["low", "medium", "high", "urgent"] },
+        "photos": { "type": "array", "items": { "type": "string" } },
+        "responsible_steward": { "$ref": "#/$defs/Party", "description": "自动带出的当前责任人，须与登记时的责任约定一致" },
+        "funding_terms": { "$ref": "#/$defs/FundingTerms", "description": "自动带出的资金约定，须与登记时的约定一致" }
+      }
+    },
+    "RepairBudgeted": {
+      "type": "object",
+      "description": "维修预算（maintenance_case）；分摊须与资金约定一致",
+      "required": ["items", "total", "funding_split", "approved_by"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "amount"],
+            "properties": {
+              "name": { "type": "string" },
+              "amount": { "type": "number", "exclusiveMinimum": 0 }
+            }
+          }
+        },
+        "total": { "type": "number", "exclusiveMinimum": 0 },
+        "funding_split": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["party", "share", "amount"],
+            "properties": {
+              "party": { "type": "string" },
+              "share": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+              "amount": { "type": "number", "minimum": 0 }
+            }
+          },
+          "description": "按资金约定分摊，金额合计等于 total"
+        },
+        "approved_by": { "type": "array", "minItems": 1, "items": { "type": "string" } }
+      }
+    },
+    "RepairAssigned": {
+      "type": "object",
+      "description": "维修派单（maintenance_case）；须写明施工安全要求",
+      "required": ["contractor", "scope", "deadline", "safety_requirements"],
+      "properties": {
+        "contractor": { "type": "string" },
+        "scope": { "type": "string", "description": "维修范围" },
+        "deadline": { "type": "string", "format": "date" },
+        "safety_requirements": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "施工安全要求" }
+      }
+    },
+    "RepairAccepted": {
+      "type": "object",
+      "description": "维修验收（maintenance_case）；验收通过或正式拆除前，案件不因课程结束而关闭",
+      "required": ["accepted_by", "result"],
+      "properties": {
+        "accepted_by": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+        "result": { "type": "string", "enum": ["pass", "fail"] },
+        "follow_up": { "type": "string", "description": "后续观察事项" }
+      }
+    }
+  }
 }
